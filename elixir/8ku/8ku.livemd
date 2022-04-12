@@ -1,0 +1,2737 @@
+# 8ku
+
+## Function 3 - multiplying two numbers
+
+Implement a function which multiplies two numbers.
+
+```elixir
+defmodule SimpleMath do
+  def multiply(a, b), do: a * b
+end
+```
+
+```elixir
+SimpleMath.multiply(2, 3)
+```
+
+## Beginner - Lost Without a Map
+
+Given an array of integers, return a new array with each value doubled.
+
+```elixir
+defmodule Maps do
+  def maps(x) do
+    Enum.map(x, &(&1 * 2))
+  end
+end
+```
+
+```elixir
+# [8, 2, 2, 2, 8])
+Maps.maps([4, 1, 1, 1, 4])
+```
+
+## Opposites Attract
+
+Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+
+Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
+
+```elixir
+defmodule Opposites do
+  require Integer
+
+  def inlove?(flower1, flower2) do
+    Integer.is_even(flower1) != Integer.is_even(flower2)
+  end
+end
+```
+
+```elixir
+Opposites.inlove?(1, 2)
+```
+
+## Count Odd Numbers below n
+
+Given a number n, return the number of positive odd numbers below n, EASY!
+
+```elixir
+defmodule OddCount do
+  def odd_count(n), do: floor(n / 2)
+end
+```
+
+```elixir
+OddCount.odd_count(15)
+```
+
+## Sentence Smash
+
+Write a function that takes an array of words and smashes them together into a sentence and returns the sentence. You can ignore any need to sanitize words or add punctuation, but you should add spaces between each word. Be careful, there shouldn't be a space at the beginning or the end of the sentence!
+
+```elixir
+defmodule SentenceSmasher do
+  def smash(words), do: String.trim(Enum.join(words, " "))
+end
+```
+
+```elixir
+SentenceSmasher.smash(["hello", "world"])
+```
+
+## Is it a palindrome?
+
+Write a function that checks if a given string (case insensitive) is a palindrome.
+
+```elixir
+defmodule IsPalindrome do
+  def is_palindrome(s) do
+    String.downcase(s) |> String.reverse() == String.downcase(s)
+  end
+end
+```
+
+```elixir
+IsPalindrome.is_palindrome("Abba")
+```
+
+## Find Maximum and Minimum Values of a List
+
+Your task is to make two functions (max and min, or maximum and minimum, etc., depending on the language) that receive a list of integers as input and return, respectively, the largest and lowest number in that list.
+
+```elixir
+defmodule MinMax do
+  def min(list), do: Enum.min(list)
+
+  def max(list), do: Enum.max(list)
+end
+```
+
+```elixir
+MinMax.min([-52, 56, 30, 29, -54, 0, -110])
+MinMax.max([-52, 56, 30, 29, -54, 0, -110])
+```
+
+## Returning Strings
+
+Make a function that will return a greeting statement that uses an input; your program should return, "Hello, <name> how are you doing today?".
+
+[Make sure you type the exact thing I wrote or the program may not execute properly]
+
+```elixir
+defmodule Kata do
+  def greet(name), do: "Hello, #{name} how are you doing today?"
+end
+```
+
+## What is between?
+
+Complete the function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
+
+```elixir
+defmodule Kata do
+  def between(a, b), do: Enum.to_list(a..b)
+end
+```
+
+```elixir
+Kata.between(-10, 10)
+```
+
+## Sum of positive
+
+You get an array of numbers, return the sum of all of the positives ones.
+
+Example [1,-4,7,12] => 1 + 7 + 12 = 20
+
+Note: if there is nothing to sum, the sum is default to 0.
+
+```elixir
+defmodule Solution do
+  def positive_sum(arr) do
+    Enum.sum(Enum.filter(arr, &(&1 > 0)))
+  end
+end
+```
+
+```elixir
+Solution.positive_sum([1, -4, 7, 12])
+```
+
+## Is it even?
+
+In this Kata we are passing a number (n) into a function.
+
+Your code will determine if the number passed is even (or not).
+
+The function needs to return either a true or false.
+
+Numbers may be positive or negative, integers or floats.
+
+Floats with decimal part non equal to zero are considered UNeven for this kata.
+
+```elixir
+defmodule Evenator do
+  import Integer
+
+  def even?(n) do
+    Integer.is_even(n)
+  end
+end
+```
+
+```elixir
+Evenator.even?(0.5)
+```
+
+## altERnaTIng cAsE <=> ALTerNAtiNG CaSe
+
+Define String.prototype.toAlternatingCase (or a similar function/method such as to_alternating_case/toAlternatingCase/ToAlternatingCase in your selected language; see the initial solution for details) such that each lowercase letter becomes uppercase and each uppercase letter becomes lowercase. For example:
+
+```elixir
+defmodule Codewars.StringUtils do
+  def alter_case(str) do
+    str
+    |> String.graphemes()
+    |> Enum.map(fn x ->
+      cond do
+        x == String.upcase(x) -> String.downcase(x)
+        x == String.downcase(x) -> String.upcase(x)
+      end
+    end)
+    |> Enum.join()
+  end
+end
+```
+
+```elixir
+Codewars.StringUtils.alter_case("HeLLo WoRLD")
+```
+
+## String repeat
+
+Write a function called repeatStr which repeats the given string string exactly n times.
+
+```elixir
+defmodule Solution do
+  def repeat_str(n, s), do: String.duplicate(s, n)
+end
+```
+
+```elixir
+Solution.repeat_str(6, "ha ")
+```
+
+## Convert a Number to a String!
+
+We need a function that can transform a number into a string.
+
+What ways of achieving this do you know?
+
+```elixir
+defmodule Stringify do
+  def number_to_string(n), do: to_string(n)
+end
+```
+
+```elixir
+Stringify.number_to_string(61)
+```
+
+## Is n divisible by x and y?
+
+Create a function that checks if a number n is divisible by two numbers x AND y. All inputs are positive, non-zero digits.
+
+```elixir
+defmodule Kata do
+  @spec is_divisible(pos_integer(), pos_integer(), pos_integer()) :: boolean()
+  def is_divisible(n, x, y), do: rem(n, x) == 0 && rem(n, y) == 0
+end
+```
+
+```elixir
+Kata.is_divisible(3, 3, 4)
+```
+
+## Well of Ideas - Easy Version
+
+For every good kata idea there seem to be quite a few bad ones!
+
+In this kata you need to check the provided array (x) for good ideas 'good' and bad ideas 'bad'. If there are one or two good ideas, return 'Publish!', if there are more than 2 return 'I smell a series!'. If there are no good ideas, as is often the case, return 'Fail!'.
+
+```elixir
+defmodule Well do
+  def well(x) do
+    case Enum.count(x, fn x -> x == "good" end) do
+      0 -> "Fail!"
+      value when value <= 2 -> "Publish!"
+      value when value > 2 -> "I smell a series!"
+    end
+  end
+end
+```
+
+```elixir
+Well.well(["bad", "bad", "bad"]) == "Fail!"
+Well.well(["good", "bad", "bad", "bad", "bad"])
+
+Well.well([
+  "bad",
+  "good",
+  "bad",
+  "bad",
+  "bad",
+  "bad",
+  "good",
+  "bad",
+  "bad",
+  "bad",
+  "bad",
+  "bad",
+  "bad",
+  "bad",
+  "bad"
+])
+```
+
+## Remove First and Last Character
+
+It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry with strings with less than two characters.
+
+```elixir
+defmodule Solution do
+  def remove_chars(s), do: String.slice(s, 1..-2)
+end
+```
+
+```elixir
+Solution.remove_chars("eloquent")
+```
+
+## Total amount of points
+
+Our football team finished the championship. The result of each match look like "x:y". Results of all matches are recorded in the collection.
+
+For example: ["3:1", "2:2", "0:1", ...]
+
+Write a function that takes such collection and counts the points of our team in the championship. Rules for counting points for each match:
+
+* if x>y - 3 points
+* if x<y - 0 point
+* if x=y - 1 point
+
+```elixir
+defmodule TotalPoints do
+  def points(games) do
+    games
+    |> Enum.map(&String.split(&1, ":"))
+    |> Enum.map(fn arr ->
+      x = List.first(arr)
+      y = List.last(arr)
+
+      cond do
+        x > y -> 3
+        x < y -> 0
+        x == y -> 1
+      end
+    end)
+    |> Enum.sum()
+  end
+end
+```
+
+```elixir
+TotalPoints.points(["3:1", "2:1", "2:2", "3:3", "4:1", "0:3", "0:4", "0:0", "1:1"])
+```
+
+## A Needle in the Haystack
+
+Can you find the needle in the haystack?
+
+Write a function findNeedle() that takes an array full of junk but containing one "needle"
+
+After your function finds the needle it should return a message (as a string) that says:
+
+"found the needle at position " plus the index it found the needle, so:
+
+```elixir
+defmodule Finder do
+  def find_needle(haystack) do
+    index = Enum.find_index(haystack, fn x -> x == "needle" end)
+
+    if index >= 0 do
+      "found the needle at position #{index}"
+    end
+  end
+end
+```
+
+```elixir
+Finder.find_needle([
+  "283497238987234",
+  "a dog",
+  "a cat",
+  "some random junk",
+  "a piece of hay",
+  "needle",
+  "something somebody lost a while ago"
+])
+```
+
+## Convert number to reversed array of digits
+
+Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+
+```elixir
+defmodule Digitizer do
+  def digitize(n), do: Integer.digits(n) |> Enum.reverse()
+end
+```
+
+```elixir
+Digitizer.digitize(35231)
+```
+
+## Reversed Strings
+
+Complete the solution so that it reverses the string passed into it.
+
+```elixir
+defmodule Solution do
+  def reverse(string), do: String.reverse(string)
+end
+```
+
+```elixir
+Solution.reverse("world")
+```
+
+## Fake Binary
+
+Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
+
+```elixir
+defmodule FakeBinary do
+  def generate(str) do
+    String.graphemes(str)
+    |> Enum.map(&if(&1 >= "5", do: 1, else: 0))
+    |> Enum.join()
+  end
+end
+```
+
+```elixir
+FakeBinary.generate("0123456789")
+```
+
+## Rock Paper Scissors
+
+Let's play! You have to return which player won! In case of a draw return Draw!.
+
+```elixir
+defmodule RockPaperScissors do
+  def rps(p1, p2) when p1 == p2, do: "Draw!"
+
+  def rps(p1, p2) do
+    case p1 do
+      "rock" ->
+        case p2 do
+          "scissors" -> "Player 1 won!"
+          "paper" -> "Player 2 won!"
+        end
+
+      "scissors" ->
+        case p2 do
+          "rock" -> "Player 1 won!"
+          "paper" -> "Player 2 won!"
+        end
+
+      "paper" ->
+        case p2 do
+          "scissors" -> "Player 2 won!"
+          "rock" -> "Player 1 won!"
+        end
+    end
+  end
+end
+```
+
+```elixir
+RockPaperScissors.rps("rock", "rock")
+
+RockPaperScissors.rps("scissors", "rock")
+# RockPaperScissors.rps("paper", "paper")
+```
+
+## DNA to RNA Conversion
+
+Deoxyribonucleic acid, DNA is the primary information storage molecule in biological systems. It is composed of four nucleic acid bases Guanine ('G'), Cytosine ('C'), Adenine ('A'), and Thymine ('T').
+
+Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs slightly from DNA its chemical structure and contains no Thymine. In RNA Thymine is replaced by another nucleic acid Uracil ('U').
+
+Create a function which translates a given DNA string into RNA.
+
+```elixir
+defmodule Convertor do
+  def dna_to_rna(dna) do
+    String.replace(dna, "T", "U")
+  end
+end
+```
+
+```elixir
+Convertor.dna_to_rna("GACCGCCGCC")
+```
+
+## Grasshopper - Check for factor
+
+This function should test if the factor is a factor of base.
+
+Return true if it is a factor or false if it is not.
+
+About factors
+Factors are numbers you can multiply together to get another number.
+
+2 and 3 are factors of 6 because: 2 * 3 = 6
+
+You can find a factor by dividing numbers. If the remainder is 0 then the number is a factor.
+You can use the mod operator (%) in most languages to check for a remainder
+For example 2 is not a factor of 7 because: 7 % 2 = 1
+
+Note: base is a non-negative number, factor is a positive number.
+
+```elixir
+defmodule CheckForFactor do
+  def check_for_factor(base, factor), do: rem(base, factor) == 0
+end
+```
+
+```elixir
+CheckForFactor.check_for_factor(9, 2)
+```
+
+## Grasshopper - Grade book
+
+Complete the function so that it finds the average of the three scores passed to it and returns the letter value associated with that grade.
+
+Numerical Score Letter Grade
+
+90 <= score <= 100  'A'
+
+80 <= score < 90    'B'
+
+70 <= score < 80    'C'
+
+60 <= score < 70    'D'
+
+0 <= score < 60 'F'
+
+```elixir
+defmodule GetGrade do
+  def get_grade(a, b, c) do
+    case (a + b + c) / 3 do
+      score when 90 <= score and score <= 100 -> "A"
+      score when 80 <= score and score < 90 -> "B"
+      score when 70 <= score and score < 80 -> "C"
+      score when 60 <= score and score < 70 -> "D"
+      _ -> "F"
+    end
+  end
+end
+```
+
+```elixir
+GetGrade.get_grade(95, 90, 93)
+GetGrade.get_grade(70, 70, 100)
+```
+
+## Beginner Series #1 School Paperwork
+
+Your classmates asked you to copy some paperwork for them. You know that there are 'n' classmates and the paperwork has 'm' pages.
+
+Your task is to calculate how many blank pages do you need. If n < 0 or m < 0 return 0.
+
+```elixir
+defmodule Paperwork do
+  def paperwork(n, m) when n <= 0 or m <= 0, do: 0
+  def paperwork(n, m), do: n * m
+end
+```
+
+```elixir
+Paperwork.paperwork(5, -5)
+```
+
+## Is he gonna survive?
+
+A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+
+```elixir
+defmodule Hero do
+  def survive(bullets, dragons), do: bullets / (dragons * 2) >= 1
+end
+```
+
+```elixir
+Hero.survive(7, 4)
+```
+
+## Square(n) Sum
+
+Complete the square sum function so that it squares each number passed into it and then sums the results together.
+
+```elixir
+defmodule SquareSum do
+  def square_sum([]), do: 0
+
+  def square_sum(nums) do
+    Enum.reduce(nums, 0, fn x, acc -> x * x + acc end)
+  end
+end
+```
+
+```elixir
+SquareSum.square_sum([-1, -2])
+```
+
+## Counting sheep...
+
+Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present).
+
+```elixir
+defmodule Shepherd do
+  def count_sheeps(sheeps) do
+    sheeps
+    |> Enum.filter(&(&1 == true))
+    |> Enum.count()
+  end
+end
+```
+
+```elixir
+Shepherd.count_sheeps([
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  true,
+  true,
+  true,
+  false,
+  true,
+  false,
+  true,
+  false,
+  false,
+  true
+])
+```
+
+## Convert a Boolean to a String
+
+Implement a function which convert the given boolean value into its string representation.
+
+```elixir
+defmodule Kata do
+  def boolean_to_string(b), do: to_string(b)
+end
+```
+
+```elixir
+Kata.boolean_to_string(true)
+```
+
+## Even or Odd
+
+Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+
+```elixir
+defmodule Codewars do
+  import Integer
+
+  def even_or_odd(number) do
+    if(Integer.is_even(number), do: "Even", else: "Odd")
+  end
+end
+```
+
+```elixir
+Codewars.even_or_odd(2)
+```
+
+## Convert a String to a Number!
+
+Note: This kata is inspired by Convert a Number to a String!. Try that one too.
+
+Description
+We need a function that can transform a string into a number. What ways of achieving this do you know?
+
+Note: Don't worry, all inputs will be strings, and every string is a perfectly valid representation of an integral number.
+
+```elixir
+defmodule Numerify do
+  def string_to_number(str), do: elem(Integer.parse(str), 0)
+end
+```
+
+```elixir
+Numerify.string_to_number("-1")
+```
+
+## Convert boolean values to strings 'Yes' or 'No'.
+
+Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
+
+```elixir
+defmodule YesOrNo do
+  def boolToWord(b) when b == true, do: "Yes"
+  def boolToWord(b) when b == false, do: "No"
+end
+```
+
+```elixir
+YesOrNo.boolToWord(true)
+```
+
+## Subtract the sum
+
+NOTE! This kata can be more difficult than regular 8-kyu katas (lets say 7 or 6 kyu)
+
+Complete the function which get an input number n such that n >= 10 and n < 10000, then:
+
+Sum all the digits of n.
+Subtract the sum from n, and it is your new n.
+If the new n is in the list below return the associated fruit, otherwise return back to task 1.
+Example
+
+n = 325
+
+sum = 3+2+5 = 10
+
+n = 325-10 = 315 (not in the list)
+
+sum = 3+1+5 = 9
+
+n = 315-9 = 306 (not in the list)
+
+sum = 3+0+6 = 9
+
+n =306-9 = 297 (not in the list)
+
+.
+.
+.
+...until you find the first n in the list below.
+
+There is no preloaded code to help you. This is not about coding skills; think before you code
+
+```elixir
+defmodule Kata do
+  def subtract_sum(n)
+    # fruit name like "apple"
+    "apple"
+  end  
+end
+```
+
+```elixir
+Kata.subtract_sum(10)
+```
+
+## Transportation on vacation
+
+After a hard quarter in the office you decide to get some rest on a vacation. So you will book a flight for you and your girlfriend and try to leave all the mess behind you.
+
+You will need a rental car in order for you to get around in your vacation. The manager of the car rental makes you some good offers.
+
+Every day you rent the car costs $40. If you rent the car for 7 or more days, you get $50 off your total. Alternatively, if you rent the car for 3 or more days, you get $20 off your total.
+
+Write a code that gives out the total amount for different days(d).
+
+```elixir
+defmodule Rent do
+  def rental_car_cost(d) when d >= 7, do: d * 40 - 50
+  def rental_car_cost(d) when d >= 3, do: d * 40 - 50
+  def rental_car_cost(d) when d < 3, do: d * 40
+end
+```
+
+```elixir
+Rent.rental_car_cost(10)
+```
+
+## Century From Year
+
+Introduction
+
+The first century spans from the year 1 up to and including the year 100, the second century - from the year 101 up to and including the year 200, etc.
+
+Task
+Given a year, return the century it is in.
+
+```elixir
+defmodule Century do
+  def century(year) when year <= 100, do: 1
+  def century(year) when rem(year, 100) == 0, do: floor(year / 100)
+  def century(year), do: floor(year / 100) + 1
+end
+```
+
+```elixir
+defmodule Century do
+  def century(year), do: ceil(year / 100)
+end
+```
+
+```elixir
+# Century.century(1705) == 18
+# Century.century(1900) == 19
+Century.century(15)
+# Century.century(2000) 
+# Century.century(2000) 
+```
+
+## Beginner Series #4 Cockroach
+
+The cockroach is one of the fastest insects. 
+Write a function which takes its speed in km per hour and returns it in cm per second, rounded down to the integer (= floored).
+
+```elixir
+defmodule Solution do
+  def solve(s), do: floor(s * 100_000 / 3600)
+end
+```
+
+```elixir
+Solution.solve(1.08)
+```
+
+## Third Angle of a Triangle
+
+You are given two interior angles (in degrees) of a triangle.
+
+Write a function to return the 3rd.
+
+Note: only positive integers will be tested.
+
+```elixir
+defmodule Triangle do
+  def other_angle(a, b), do: 180 - a - b
+end
+```
+
+```elixir
+Triangle.other_angle(43, 78)
+```
+
+## Get Nth Even Number
+
+Return the Nth Even Number
+
+```elixir
+defmodule NthEven do
+  def nth_even(n), do: n + n - 2
+end
+```
+
+```elixir
+NthEven.nth_even(100)
+```
+
+## Beginner Series #2 Clock
+
+Clock shows h hours, m minutes and s seconds after midnight.
+
+Your task is to write a function which returns the time since midnight in milliseconds.
+
+```elixir
+defmodule Kata do
+  def past(h, m, s), do: (h * 3600 + m * 60 + s) * 1000
+end
+```
+
+```elixir
+Kata.past(23, 1, 1)
+```
+
+```elixir
+defmodule Kata do
+  def past(h, m, s), do: :timer.hours(h) + :timer.minutes(m) + :timer.seconds(s)
+end
+```
+
+```elixir
+Kata.past(23, 1, 1)
+```
+
+## Grasshopper - Messi goals function
+
+Messi is a soccer player with goals in three leagues:
+
+LaLiga
+Copa del Rey
+Champions
+Complete the function to return his total number of goals in all three leagues.
+
+Note: the input will always be valid.
+
+```elixir
+defmodule Goals do
+  def goals(a, b, c), do: a + b + c
+end
+```
+
+```elixir
+Goals.goals(43, 10, 5)
+```
+
+## You Can't Code Under Pressure #1
+
+Code as fast as you can! You need to double the integer and return it.
+
+```elixir
+defmodule SimpleMath do
+  def double_integer(x), do: x * 2
+end
+```
+
+## Return Negative
+
+In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
+
+```elixir
+defmodule Negator do
+  def make_negative(num) when num < 0, do: num
+  def make_negative(num), do: -num
+end
+```
+
+```elixir
+Negator.make_negative(-5)
+```
+
+## Grasshopper - Terminal game move function
+
+Terminal game move function
+
+In this game, the hero moves from left to right. The player rolls the die and moves the number of spaces indicated by the die two times.
+
+Create a function for the terminal game that takes the current position of the hero and the roll (1-6) and return the new position.
+
+```elixir
+defmodule GameMove do
+  def move(pos, roll), do: pos + roll * 2
+end
+```
+
+```elixir
+GameMove.move(3, 6)
+```
+
+## Expressions Matter
+
+Given three integers a ,b ,c, return the largest number obtained after inserting the following operators and brackets: +, *, ()
+
+In other words , try every combination of a,b,c with [*+()] , and return the Maximum Obtained
+
+Consider an Example :
+
+With the numbers are 1, 2 and 3 , here are some ways of placing signs and brackets:
+
+1 * (2 + 3) = 5
+
+1 * 2 * 3 = 6
+
+1 + 2 * 3 = 7
+
+(1 + 2) * 3 = 9
+
+So the maximum value that you can obtain is 9.
+
+Notes
+
+* The numbers are always positive.
+* The numbers are in the range (1  ≤  a, b, c  ≤  10).
+* You can use the same operation more than once.
+* It's not necessary to place all the signs and brackets.
+* Repetition in numbers may occur .
+* You cannot swap the operands. For instance, in the given example you cannot get expression (1 + 3) * 2 = 8.
+
+```elixir
+defmodule ExpressionMatter do
+  def expression_matter(a, b, c) do
+    [a * (b + c), a * b * c, a + b * c, (a + b) * c, a + b + c]
+    |> Enum.max()
+  end
+end
+```
+
+```elixir
+ExpressionMatter.expression_matter(1, 1, 1)
+```
+
+## Opposite number
+
+Very simple, given an integer or a floating-point number, find its opposite.
+
+```elixir
+defmodule Opposite do
+  def opposite(number), do: -number
+end
+```
+
+```elixir
+Opposite.opposite(-8)
+```
+
+## Keep Hydrated
+
+Nathan loves cycling.
+
+Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+
+You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+
+```elixir
+defmodule KeepHydrated do
+  def litres(time), do: floor(time * 0.5)
+end
+```
+
+```elixir
+KeepHydrated.litres(12.3)
+```
+
+## Function 2 - squaring an argument
+
+Now you have to write a function that takes an argument and returns the square of it.
+
+```elixir
+defmodule SimpleMath do
+  def square(arg), do: arg ** 2
+end
+```
+
+```elixir
+SimpleMath.square(5)
+```
+
+## Function 1 - hello world
+
+```elixir
+defmodule HelloWorld do
+  def greet, do: "hello world!"
+end
+```
+
+## Summation
+
+Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0.
+
+```elixir
+defmodule Series do
+  def summation(n), do: n * (n + 1) / 2
+end
+```
+
+```elixir
+Series.summation(8)
+
+d = fn list -> list * (list + 1) / 2 end
+
+d.(100)
+```
+
+## Lario and Muigi Pipe Problem
+
+Looks like some hoodlum plumber and his brother has been running around and damaging your stages again.
+
+The pipes connecting your level's stages together need to be fixed before you receive any more complaints. Each pipe should be connecting, since the levels ascend, you can assume every number in the sequence after the first index will be greater than the previous and that there will be no duplicates.
+
+Task
+
+Given the a list of numbers, return the list so that the values increment by 1 for each index up to the maximum value.
+
+```elixir
+defmodule Pipeline do
+  def fix_pipe(pipes) do
+    Enum.to_list(List.first(pipes)..List.last(pipes))
+  end
+end
+```
+
+```elixir
+Pipeline.fix_pipe([1, 2, 3, 5, 6, 8, 9])
+```
+
+## Convert a string to an array
+
+Write a function to split a string and convert it into an array of words. For example:
+
+```elixir
+defmodule Kata do
+  def string_to_array(s), do: String.split(s, " ")
+end
+```
+
+```elixir
+Kata.string_to_array("I love arrays they are my favorite")
+```
+
+## Remove exclamation marks
+
+Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
+
+```elixir
+defmodule Codewars do
+  def remove_exclamation_marks(s), do: String.replace(s, "!", "")
+end
+```
+
+```elixir
+Codewars.remove_exclamation_marks("Oh, no!!!")
+```
+
+## Basic Mathematical Operations
+
+Your task is to create a function that does four basic mathematical operations.
+
+The function should take three arguments - operation(string/char), value1(number), value2(number).
+The function should return result of numbers after applying the chosen operation.
+
+```elixir
+defmodule SimpleMath do
+  def basic_op(operation, value1, value2) do
+    {result, _} = Code.eval_string("a" <> operation <> "b", a: value1, b: value2)
+    result
+  end
+end
+```
+
+```elixir
+SimpleMath.basic_op("+", 4, 7) == 11
+SimpleMath.basic_op("-", 15, 18) == -3
+SimpleMath.basic_op("*", 5, 5) == 25
+SimpleMath.basic_op("/", 49, 7)
+```
+
+## Invert values
+
+Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+
+```elixir
+defmodule Inverter do
+  def invert(list), do: Enum.map(list, &(-&1))
+end
+```
+
+```elixir
+Inverter.invert([1, -2, 3, -4, 5])
+```
+
+## How good are you really?
+
+There was a test in your class and you passed it. Congratulations!
+
+But you're an ambitious person. You want to know if you're better than the average student in your class.
+
+You receive an array with your peers' test scores. Now calculate the average and compare your score!
+
+Return True if you're better, else False!
+
+Note:
+
+Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
+
+```elixir
+defmodule Detector do
+  def better_than_average(class_points, your_points) do
+    Enum.sum(class_points) / Enum.count(class_points) <= your_points
+  end
+end
+```
+
+```elixir
+Detector.better_than_average([2, 3], 5)
+```
+
+## Are You Playing Banjo?
+
+Create a function which answers the question "Are you playing banjo?".
+
+If your name starts with the letter "R" or lower case "r", you are playing banjo!
+
+The function takes a name as its only argument, and returns one of the following strings:
+
+```
+name + " plays banjo" 
+name + " does not play banjo"
+```
+
+```elixir
+defmodule TalantDetector do
+  def are_you_playing_banjo?(name) do
+    case String.first(name) |> String.downcase() do
+      "r" -> "#{name} plays banjo"
+      _ -> "#{name} does not play banjo"
+    end
+  end
+end
+```
+
+```elixir
+TalantDetector.are_you_playing_banjo?("Martin") == "Martin does not play banjo"
+TalantDetector.are_you_playing_banjo?("Rikke") == "Rikke plays banjo"
+TalantDetector.are_you_playing_banjo?("rikke") == "rikke plays banjo"
+TalantDetector.are_you_playing_banjo?("bravo") == "bravo does not play banjo"
+```
+
+## Kata Example Twist
+
+This is an easy twist to the example kata (provided by Codewars when learning how to create your own kata).
+
+Add the value "codewars" to the array websites/Websites 1,000 times.
+
+```elixir
+defmodule Websites do
+  def websites, do: Enum.map(1..1000, fn _x -> "codewars" end)
+end
+```
+
+```elixir
+defmodule Websites do
+  def websites do
+    Stream.cycle(["codewars"]) |> Enum.take(1000)
+  end
+end
+```
+
+```elixir
+defmodule Websites do
+  def websites do
+    List.duplicate("codewars", 1000)
+  end
+end
+```
+
+```elixir
+Websites.websites()
+```
+
+## My head is at the wrong end!
+
+You're at the zoo... all the meerkats look weird. Something has gone terribly wrong - someone has gone and switched their heads and tails around!
+
+Save the animals by switching them back. You will be given an array which will have three values (tail, body, head). It is your job to re-arrange the array so that the animal is the right way round (head, body, tail).
+
+Same goes for all the other arrays/lists that you will get in the tests: you have to change the element positions with the same exact logics
+
+```elixir
+defmodule Codewars.Zoo do
+  def fix_the_meerkat(tuple) do
+    tuple
+    |> Tuple.to_list()
+    |> Enum.reverse()
+    |> List.to_tuple()
+  end
+end
+```
+
+```elixir
+Codewars.Zoo.fix_the_meerkat({"ground", "rainbow", "sky"})
+```
+
+## Get the mean of an array
+
+It's the academic year's end, fateful moment of your school report. The averages must be calculated. All the students come to you and entreat you to calculate their average for them. Easy ! You just need to write a script.
+
+Return the average of the given array rounded down to its nearest integer.
+
+The array will never be empty.
+
+```elixir
+defmodule Calculator do
+  def get_average(marks) do
+    floor(Enum.sum(marks) / Enum.count(marks))
+  end
+end
+```
+
+```elixir
+Calculator.get_average([1, 1, 1, 1, 1, 1, 1, 2])
+```
+
+## Did she say hallo?
+
+You received a whatsup message from an unknown number. Could it be from that girl/boy with a foreign accent you met yesterday evening?
+
+Write a simple function to check if the string contains the word hallo in different languages.
+
+These are the languages of the possible people you met the night before:
+
+hello - english
+
+ciao - italian
+
+salut - french
+
+hallo - german
+
+hola - spanish
+
+ahoj - czech republic
+
+czesc - polish
+
+Notes
+
+you can assume the input is a string.
+to keep this a beginner exercise you don't need to check if the greeting is a subset of word (Hallowen can pass the test)
+function should be case insensitive to pass the tests
+
+```elixir
+defmodule Polyglot do
+  @dict ~w(hello ciao salut hallo hola ahoj czesc)
+  def validate_hello(greetings) do
+    result =
+      greetings
+      |> String.split()
+      |> Enum.filter(&(String.downcase(&1) in @dict))
+      |> Enum.empty?()
+
+    !result
+  end
+end
+```
+
+```elixir
+defmodule Polyglot do
+  @dict ~w(hello ciao salut hallo hola ahoj czesc)
+
+  def validate_hello(greetings) do
+    greetings
+    |> String.downcase()
+    |> String.contains?(@dict)
+  end
+end
+```
+
+```elixir
+Polyglot.validate_hello("d")
+# Polyglot.validate_hello("foobar")
+# Polyglot.validate_hello("you doing hallo tres bien")
+```
+
+## Grasshopper - Debug sayHello
+
+The starship Enterprise has run into some problem when creating a program to greet everyone as they come aboard. It is your job to fix the code and get the program working again!
+
+Example output:
+
+```
+Hello, Mr. Spock
+```
+
+```elixir
+defmodule Enterprise do
+  def say_hello(name), do: "Hello, #{name}"
+end
+```
+
+```elixir
+Enterprise.say_hello("Dr. McCoy") == "Hello, Dr. McCoy"
+```
+
+## Short Long Short
+
+Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string on the outside and the longer string on the inside. The strings will not be the same length, but they may be empty ( zero length ).
+
+Hint for R users:
+
+The length of string is not always the same as the number of characters
+
+For example: (Input1, Input2) --> output
+
+```
+("1", "22") --> "1221"
+
+("22", "1") --> "1221"
+```
+
+```elixir
+defmodule ShortLongShort do
+  def solution(a, b) do
+    cond do
+      String.length(a) > String.length(b) -> b <> a <> b
+      String.length(a) < String.length(b) -> a <> b <> a
+    end
+  end
+end
+```
+
+```elixir
+ShortLongShort.solution("a", "bb")
+# ShortLongShort.solution("aa", "b") == "baab"
+```
+
+## Ensure question
+
+Given a string, write a function that returns the string with a question mark ("?") appends to the end, unless the original string ends with a question mark, in which case, returns the original string.
+
+For example (Input --> Output)
+
+```
+"Yes" --> "Yes?" 
+
+"No?" --> "No?"
+```
+
+```elixir
+defmodule Parsers do
+  def ensure_question(s), do: if(String.last(s) == "?", do: s, else: s <> "?")
+end
+```
+
+```elixir
+Parsers.ensure_question("") == "?"
+Parsers.ensure_question("Yes") == "Yes?"
+Parsers.ensure_question("No?") == "No?"
+```
+
+## Jenny's secret message
+
+Jenny has written a function that returns a greeting for a user. However, she's in love with Johnny, and would like to greet him slightly different. She added a special case to her function, but she made a mistake.
+
+```elixir
+defmodule Kata do
+  def greet("Johnny"), do: "Hello, my love!"
+  def greet(name), do: "Hello, #{name}!"
+end
+```
+
+```elixir
+Kata.greet("Jim")
+```
+
+## Generate range of integers
+
+Implement a function named generateRange(min, max, step), which takes three arguments and generates a range of integers from min to max, with the step. The first integer is the minimum value, the second is the maximum of the range and the third is the step. (min < max)
+
+Task
+
+Implement a function named
+
+```
+generate_range(2, 10, 2) # should return array of [2,4,6,8,10]
+generate_range(1, 10, 3) # should return array of [1,4,7,10]
+```
+
+Note
+
+min < max
+
+step > 0
+
+the range does not HAVE to include max (depending on the step)
+
+```elixir
+defmodule NumGenerator do
+  def generate_range(min, max, step), do: :lists.seq(min, max, step)
+end
+```
+
+```elixir
+defmodule NumGenerator do
+  def generate_range(min, max, step) do
+    Enum.take_every(min..max, step)
+  end
+end
+```
+
+```elixir
+NumGenerator.generate_range(2, 10, 2) == [2, 4, 6, 8, 10]
+NumGenerator.generate_range(1, 10, 3) == [1, 4, 7, 10]
+NumGenerator.generate_range(1, 10, 1) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+NumGenerator.generate_range(1, 10, 4) == [1, 5, 9]
+NumGenerator.generate_range(1, 10, 5)
+```
+
+## Name Shuffler
+
+Write a function that returns a string in which firstname is swapped with last name.
+
+```
+name_shuffler("john McClane"); => "McClane john"
+```
+
+```elixir
+defmodule Messy do
+  def name_shuffler(str) do
+    str
+    |> String.split()
+    |> Enum.reverse()
+    |> Enum.join(" ")
+  end
+end
+```
+
+```elixir
+Messy.name_shuffler("john McClane") == "McClane john"
+Messy.name_shuffler("Mary jeggins") == "jeggins Mary"
+Messy.name_shuffler("tom jerry") == "jerry tom"
+```
+
+## Remove String Spaces
+
+Simple, remove the spaces from the string, then return the resultant string.
+
+```elixir
+defmodule Kata do
+  def no_space(x), do: String.replace(x, " ", "")
+end
+```
+
+```elixir
+Kata.no_space("8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd")
+```
+
+## Sum Mixed Array
+
+Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+
+```elixir
+defmodule SumMix do
+  def sumMin(list) do
+    list
+    |> Enum.map(fn x ->
+      if is_binary(x), do: String.to_integer(x), else: x
+    end)
+    |> Enum.sum()
+  end
+end
+```
+
+```elixir
+SumMix.sumMin([0, "1", "2", 3])
+```
+
+## Count by X
+
+Create a function with two arguments that will return an array of the first (n) multiples of (x).
+
+Assume both the given number and the number of times to count will be positive numbers greater than 0.
+
+Return the results as an array (or list in Python, Haskell or Elixir).
+
+```elixir
+defmodule Count do
+  def count_by(x, n), do: Enum.take_every(x..(n * x), x)
+end
+```
+
+```elixir
+Count.count_by(1, 5) == [1, 2, 3, 4, 5]
+Count.count_by(2, 5)
+```
+
+## Cat years, Dog years
+
+Kata Task
+
+I have a cat and a dog.
+
+I got them at the same time as kitten/puppy. That was humanYears years ago.
+
+Return their respective ages now as [humanYears,catYears,dogYears]
+
+NOTES:
+
+humanYears >= 1
+
+humanYears are whole numbers only
+
+Cat Years
+
+15 cat years for first year
+
++9 cat years for second year
+
++4 cat years for each year after that
+
+Dog Years
+
+15 dog years for first year
+
++9 dog years for second year
+
++5 dog years for each year after that
+
+```elixir
+defmodule Dinglemouse do
+  @moduledoc false
+
+  def human_years_cat_years_dog_years(human_years) do
+    {human_years, find_years(human_years, 4), find_years(human_years, 5)}
+  end
+
+  def find_years(human_years, y) do
+    Enum.map(1..human_years, fn x ->
+      case x do
+        1 -> 15
+        2 -> 9
+        _ -> y
+      end
+    end)
+    |> Enum.sum()
+  end
+end
+```
+
+```elixir
+Dinglemouse.human_years_cat_years_dog_years(10)
+```
+
+## How many lightsabers do you own?
+
+Inspired by the development team at Vooza, write the function that
+
+* accepts the name of a programmer, and
+* returns the number of lightsabers owned by that person.
+
+The only person who owns lightsabers is Zach, by the way. He owns 18, which is an awesome number of lightsabers. Anyone else owns 0.
+
+```elixir
+defmodule Lightsabers do
+  def how_many_lightsabers_do_you_own(name) when name == "Zach", do: 18
+  def how_many_lightsabers_do_you_own(_name), do: 0
+end
+```
+
+```elixir
+Lightsabers.how_many_lightsabers_do_you_own("Zach") == 18
+Lightsabers.how_many_lightsabers_do_you_own("Adam") == 0
+```
+
+## Price of Mangoes
+
+There's a "3 for 2" (or "2+1" if you like) offer on mangoes. For a given quantity and price (per mango), calculate the total cost of the mangoes.
+
+```elixir
+defmodule Solution do
+  def mango(quantity, price) do
+    (quantity - rem(quantity, 3)) * price / (3 / 2) + rem(quantity, 3) * price
+  end
+end
+```
+
+```elixir
+defmodule Solution do
+  def mango(quantity, price) do
+    (quantity - div(quantity, 3)) * price
+  end
+end
+```
+
+```elixir
+Solution.mango(7541, 424)
+# 2131872
+```
+
+## Miles per gallon to kilometers per liter
+
+Sometimes, I want to quickly be able to convert miles per imperial gallon into kilometers per liter.
+
+Create an application that will display the number of kilometers per liter (output) based on the number of miles per imperial gallon (input).
+
+Make sure to round off the result to two decimal points. If the answer ends with a 0, it should be rounded off without the 0. So instead of 5.50, we should get 5.5.
+
+Some useful associations relevant to this kata: 1 Imperial Gallon = 4.54609188 litres 1 Mile = 1.609344 kilometres
+
+```elixir
+defmodule Converter do
+  def convert(mpg), do: Float.round(mpg * 1.609344 / 4.54609188, 2)
+end
+```
+
+```elixir
+Converter.convert(12) == 4.25
+Converter.convert(24)
+# == 8.50
+Converter.convert(36)
+# == 12.74
+```
+
+## Template Strings
+
+Template Strings
+
+Template Strings, this kata is mainly aimed at the new JS ES6 Update introducing Template Strings
+Task
+
+Your task is to return the correct string using the Template String Feature.
+Input
+
+Two Strings, no validation is needed.
+
+```elixir
+defmodule Templates do
+  def temple_strings(obj, feature), do: "#{obj} are #{feature}"
+end
+```
+
+```elixir
+Templates.temple_strings("Animals", "Good")
+```
+
+## Find numbers which are divisible by given number
+
+Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor. First argument is an array of numbers and the second is the divisor.
+
+```elixir
+defmodule Filtron do
+  def divisible_by(numbers, divisor), do: Enum.filter(numbers, &(rem(&1, divisor) == 0))
+end
+```
+
+```elixir
+Filtron.divisible_by([1, 2, 3, 4, 5, 6], 2) == [2, 4, 6]
+Filtron.divisible_by([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) == [3, 6, 9]
+```
+
+## Stringy Strings
+
+write me a function stringy that takes a size and returns a string of alternating '1s' and '0s'.
+
+the string should start with a 1.
+
+a string with size 6 should return :'101010'.
+
+with size 4 should return : '1010'.
+
+with size 12 should return : '101010101010'.
+
+The size will always be positive and will only use whole numbers.
+
+```elixir
+defmodule OneZeroSequencer do
+  def stringy(size) do
+    1..size
+    |> Enum.map(&if rem(&1, 2) == 0, do: 0, else: 1)
+    |> Enum.join()
+  end
+end
+```
+
+```elixir
+defmodule OneZeroSequencer do
+  def stringy(size) do
+    Stream.cycle([1, 0])
+    |> Enum.take(size)
+    |> Enum.join()
+  end
+end
+```
+
+```elixir
+OneZeroSequencer.stringy(3) == "101"
+OneZeroSequencer.stringy(5) == "10101"
+OneZeroSequencer.stringy(12) == "101010101010"
+OneZeroSequencer.stringy(26) == "10101010101010101010101010"
+OneZeroSequencer.stringy(28) == "1010101010101010101010101010"
+```
+
+## Beginner - Reduce but Grow
+
+Given a non-empty array of integers, return the result of multiplying the values together in order. Example:
+
+```elixir
+defmodule Grow do
+  def grow(arr), do: Enum.reduce(arr, fn x, acc -> x * acc end)
+end
+```
+
+```elixir
+Grow.grow([2, 2, 2, 2, 2, 2])
+```
+
+## Do I get a bonus?
+
+It's bonus time in the big city! The fatcats are rubbing their paws in anticipation... but who is going to make the most money?
+
+Build a function that takes in two arguments (salary, bonus). Salary will be an integer, and bonus a boolean.
+
+If bonus is true, the salary should be multiplied by 10. If bonus is false, the fatcat did not make enough money and must receive only his stated salary.
+
+Return the total figure the individual will receive as a string prefixed with "£" (= "\u00A3", JS, Go, Java and Julia), "$" (C#, C++, Ruby, Clojure, Elixir, PHP, Python, Haskell and Lua) or "¥" (Rust).
+
+```elixir
+defmodule Codewars.Reward do
+  def bonus_time(salary, bonus) when bonus, do: "$#{salary * 10}"
+  def bonus_time(salary, bonus), do: "$#{salary}"
+end
+```
+
+```elixir
+Codewars.Reward.bonus_time(67890, true) == "$678900"
+```
+
+## Smallest unused ID
+
+Hey awesome programmer!
+
+You've got much data to manage and of course you use zero-based and non-negative ID's to make each data item unique!
+
+Therefore you need a method, which returns the smallest unused ID for your next new data item...
+
+Note: The given array of used IDs may be unsorted. For test reasons there may be duplicate IDs, but you don't have to find or remove them!
+
+Go on and code some pure awesomeness!
+
+```elixir
+defmodule Order do
+  def next_id(ids) do
+    ids = Enum.sort(ids, :asc)
+
+    0..Enum.count(ids)
+    |> Enum.reject(&(&1 in ids))
+    |> List.first()
+  end
+end
+```
+
+```elixir
+# Order.next_id([0,1,2,3,4,5,6,7,8,9,10])
+Order.next_id([0, 1, 2, 3, 5])
+```
+
+## Are arrow functions odd?
+
+Time to test your basic knowledge in functions! Return the odds from a list:
+
+```elixir
+defmodule OnlyOdd do
+  def odds(nums), do: Enum.reject(nums, &(rem(&1, 2) == 0))
+end
+```
+
+```elixir
+OnlyOdd.odds([1, 2, 3, 4, 5, 6])
+```
+
+## Take the Derivative
+
+This function takes two numbers as parameters, the first number being the coefficient, and the second number being the exponent.
+
+Your function should multiply the two numbers, and then subtract 1 from the exponent. Then, it has to print out an expression (like 28x^7). "^1" should not be truncated when exponent = 2.
+
+```elixir
+defmodule Kata do
+  def derive(coefficient, exponent), do: "#{coefficient * exponent}x^#{exponent - 1}"
+end
+```
+
+```elixir
+Kata.derive(5, 9) === "45x^8"
+```
+
+## Dollars and Cents
+
+The company you work for has just been awarded a contract to build a payment gateway. In order to help move things along, you have volunteered to create a function that will take a float and return the amount formatting in dollars and cents.
+
+39.99 becomes $39.99
+
+The rest of your team will make sure that the argument is sanitized before being passed to your function although you will need to account for adding trailing zeros if they are missing (though you won't have to worry about a dangling period).
+
+```elixir
+defmodule Cashier do
+  def format_money(amount), do: "$#{:erlang.float_to_binary(amount, decimals: 2)}"
+end
+```
+
+```elixir
+defmodule Cashier do
+  def format_money(amount) do
+    "$#{Float.to_string(amount, decimals: 2)}"
+  end
+end
+```
+
+```elixir
+Cashier.format_money(39.90)
+```
+
+## Sum Arrays
+
+Write a function that takes an array of numbers and returns the sum of the numbers. The numbers can be negative or non-integer. If the array does not contain any numbers then you should return 0.
+
+Examples
+Input: [1, 5.2, 4, 0, -1]
+Output: 9.2
+
+Input: []
+Output: 0
+
+Input: [-2.398]
+Output: -2.398
+
+Assumptions
+You can assume that you are only given numbers.
+You cannot assume the size of the array.
+You can assume that you do get an array and if the array is empty, return 0.
+What We're Testing
+We're testing basic loops and math operations. This is for beginners who are just learning loops and math operations.
+Advanced users may find this extremely easy and can easily write this in one line.
+
+```elixir
+defmodule SumNumbers do
+  def sum([]), do: 0
+  def sum(numbers), do: Enum.sum(numbers)
+end
+```
+
+```elixir
+SumNumbers.sum([]) == 0
+SumNumbers.sum([1, 5.2, 4, 0, -1]) == 9.2
+```
+
+## L1: Set Alarm
+
+Write a function named setAlarm which receives two parameters. The first parameter, employed, is true whenever you are employed and the second parameter, vacation is true whenever you are on vacation.
+
+The function should return true if you are employed and not on vacation (because these are the circumstances under which you need to set an alarm). It should return false otherwise. Examples:
+
+```elixir
+defmodule Alarm do
+  def set_alarm(employed, vacation) when employed == true and vacation == false, do: true
+  def set_alarm(_employed, _vacation), do: false
+end
+```
+
+```elixir
+Alarm.set_alarm(true, true) == false
+Alarm.set_alarm(false, true) == false
+Alarm.set_alarm(true, false) == true
+Alarm.set_alarm(false, false) == false
+```
+
+## Capitalization and Mutability
+
+Your coworker was supposed to write a simple helper function to capitalize a string (that contains a single word) before they went on vacation.
+
+Unfortunately, they have now left and the code they gave you doesn't work. Fix the helper function they wrote so that it works as intended (i.e. make the first character in the string "word" upper case).
+
+Don't worry about numbers, special characters, or non-string types being passed to the function. The string lengths will be from 1 character up to 10 characters, but will never be empty.
+
+```elixir
+defmodule Solution do
+  def solve(w) do
+    String.capitalize(w)
+  end
+end
+```
+
+```elixir
+Solution.solve("glasswear") === "Glasswear"
+```
+
+## Welcome!
+
+Your start-up's BA has told marketing that your website has a large audience in Scandinavia and surrounding countries. Marketing thinks it would be great to welcome visitors to the site in their own language. Luckily you already use an API that detects the user's location, so this is an easy win.
+
+The Task
+
+* Think of a way to store the languages as a database (eg an object). The languages are listed below so you can copy and paste!
+* Write a 'welcome' function that takes a parameter 'language' (always a string), and returns a greeting - if you have it in your database. It should default to English if the language is not in the database, or in the event of an invalid input.
+
+```elixir
+defmodule Greeter do
+  @dict %{
+    english: "Welcome",
+    czech: "Vitejte",
+    danish: "Velkomst",
+    dutch: "Welkom",
+    estonian: "Tere tulemast",
+    finnish: "Tervetuloa",
+    flemish: "Welgekomen",
+    french: "Bienvenue",
+    german: "Willkommen",
+    irish: "Failte",
+    italian: "Benvenuto",
+    latvian: "Gaidits",
+    lithuanian: "Laukiamas",
+    polish: "Witamy",
+    spanish: "Bienvenido",
+    swedish: "Valkommen",
+    welsh: "Croeso"
+  }
+
+  def greet("IP_ADDRESS_INVALID"), do: "Welcome"
+  def greet("IP_ADDRESS_NOT_FOUND"), do: "Welcome"
+  def greet("IP_ADDRESS_REQUIRED"), do: "Welcome"
+  def greet(language), do: @dict[String.to_atom(language)]
+end
+```
+
+```elixir
+Greeter.greet("dutch")
+# == "Welkom"
+Greeter.greet("IP_ADDRESS_INVALID")
+```
+
+## Get Planet Name By ID
+
+The function is not returning the correct values. Can you figure out why?
+
+```elixir
+defmodule Kata do
+  @planetNames ~w{Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune}
+
+  def getPlanetName(id) do
+    Enum.at(@planetNames, id - 1)
+  end
+end
+```
+
+```elixir
+Kata.getPlanetName(5) == "Jupiter"
+```
+
+## Is the string uppercase?
+
+Task
+Create a method upper_case? to see whether the string is ALL CAPS. For example:
+
+```elixir
+defmodule StringUtils do
+  def upper_case?(str), do: String.upcase(str) == str
+end
+```
+
+```elixir
+StringUtils.upper_case?("ACSKLDFJSGSKLDFJSKLDFJ") == true
+```
+
+## Triple Trouble
+
+Create a function that will return a string that combines all of the letters of the three inputed strings in groups. Taking the first letter of all of the inputs and grouping them next to each other. Do this for every letter, see example below!
+
+E.g. Input: "aa", "bb" , "cc" => Output: "abcabc"
+
+Note: You can expect all of the inputs to be the same length.
+
+```elixir
+defmodule Codewars.WeirdString do
+  def triple_trouble(one, two, three) do
+    0..(String.length(one) - 1)
+    |> Enum.map(&(String.at(one, &1) <> String.at(two, &1) <> String.at(three, &1)))
+    |> Enum.join()
+  end
+end
+```
+
+```elixir
+Codewars.WeirdString.triple_trouble("LLh", "euo", "xtr")
+```
+
+## No zeros for heros
+
+Numbers ending with zeros are boring.
+
+They might be fun in your world, but not here.
+
+Get rid of them. Only the ending ones.
+
+```elixir
+defmodule Codewars.Heronizer do
+  def no_boring_zeros(n) do
+    x =
+      abs(n)
+      |> Integer.to_string()
+      |> String.reverse()
+      |> String.to_integer()
+      |> Integer.to_string()
+      |> String.reverse()
+      |> String.to_integer()
+
+    if n < 0, do: -x, else: x
+  end
+end
+```
+
+```elixir
+defmodule Codewars.Heronizer do
+  def no_boring_zeros(0), do: 0
+  def no_boring_zeros(n) when rem(n, 10) == 0, do: no_boring_zeros(div(n, 10))
+  def no_boring_zeros(n), do: n
+end
+```
+
+```elixir
+Codewars.Heronizer.no_boring_zeros(-50)
+```
+
+## Count the Monkeys!
+
+You take your son to the forest to see the monkeys. You know that there are a certain number there (n), but your son is too young to just appreciate the full number, he has to start counting them from 1.
+
+As a good parent, you will sit and count with him. Given the number (n), populate an array with all numbers up to and including that number, but excluding zero.
+
+For example:
+
+```elixir
+defmodule Codewars.Zoo do
+  def monkey_count(n), do: Enum.to_list(1..n)
+end
+```
+
+```elixir
+Codewars.Zoo.monkey_count(20) == [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20
+]
+```
+
+## The 'if' function
+
+Create a function called _if which takes 3 arguments: a boolean value bool and 2 functions (which do not take any parameters): func1 and func2
+
+When bool is truth-ish, func1 should be called, otherwise call the func2.
+
+```elixir
+defmodule Conditional do
+  def _if(nil, _, felse), do: felse.()
+  def _if(false, _, felse), do: felse.()
+  def _if(_, fthen, _), do: fthen.()
+end
+```
+
+```elixir
+Conditional._if(false, fn -> IO.puts("true") end, fn -> IO.puts("false") end)
+fthen = fn -> :then end
+felse = fn -> :else end
+Conditional._if(10, fthen, felse) == :else
+# Conditional._if(false, fthen, felse) == :else
+```
+
+## Regexp Basics - is it a digit?
+
+Implement String#digit? (in Java StringUtils.isDigit(String)), which should return true if given object is a digit (0-9), false otherwise.
+
+```elixir
+defmodule StringUtils do
+  def digit?(s), do: String.match?(s, ~r/^\d\z/)
+end
+```
+
+```elixir
+StringUtils.digit?("14") == false
+
+# String.match?("91", ~r/^\d$/)
+```
+
+## Simple validation of a username with regex
+
+Write a simple regex to validate a username. Allowed characters are:
+
+* lowercase letters,
+* numbers,
+* underscore
+
+Length should be between 4 and 16 characters (both included).
+
+```elixir
+defmodule UserValidator do
+  def valid?(username), do: String.match?(username, ~r/^[a-z0-9_]{4,16}+\z/)
+end
+```
+
+```elixir
+UserValidator.valid?("asd43_34\n")
+```
+
+## Surface Area and Volume of a Box
+
+Write a function that returns the total surface area and volume of a box as a list: {area, volume}
+
+```elixir
+defmodule Measurer do
+  def get_size(width, height, depth) do
+    {2 * (width * depth + width * height + depth * height), width * height * depth}
+  end
+end
+```
+
+```elixir
+Measurer.get_size(4, 2, 6)
+# == {88, 48}
+```
+
+## Simple Fun #1: Seats in Theater
+
+Your friend advised you to see a new performance in the most popular theater in the city. He knows a lot about art and his advice is usually good, but not this time: the performance turned out to be awfully dull. It's so bad you want to sneak out, which is quite simple, especially since the exit is located right behind your row to the left. All you need to do is climb over your seat and make your way to the exit.
+
+The main problem is your shyness: you're afraid that you'll end up blocking the view (even if only for a couple of seconds) of all the people who sit behind you and in your column or the columns to your left. To gain some courage, you decide to calculate the number of such people and see if you can possibly make it to the exit without disturbing too many people.
+
+Given the total number of rows and columns in the theater (nRows and nCols, respectively), and the row and column you're sitting in, return the number of people who sit strictly behind you and in your column or to the left, assuming all seats are occupied.
+
+Example
+
+```
+For nCols = 16, nRows = 11, col = 5 and row = 3, the output should be
+```
+
+```elixir
+defmodule SeatsInTheater do
+  def seats_in_theater(n_cols, n_rows, col, row), do: (n_rows - row) * (n_cols + 1 - col)
+end
+```
+
+```elixir
+SeatsInTheater.seats_in_theater(16, 11, 5, 3)
+```
+
+## What's up next?
+
+Given a sequence of items and a specific item in that sequence, return the item immediately following the item specified. If the item occurs more than once in a sequence, return the item after the first occurence. This should work for a sequence of any type.
+
+When the item isn't present or nothing follows it, the function should return nil in Clojure and Elixir, Nothing in Haskell, undefined in JavaScript, None in Python.
+
+```elixir
+defmodule NextBigThing do
+  def next_item(_list, 0), do: nil
+
+  def next_item(list, item) do
+    index = Enum.find_index(list, &(&1 == item))
+
+    unless is_nil(index) do
+      Enum.at(list, index + 1)
+    end
+  end
+end
+```
+
+```elixir
+defmodule NextBigThing do
+  def next_item([], _item), do: nil
+  def next_item([item, next | _rest], item), do: next
+  def next_item([_any | rest], item), do: next_item(rest, item)
+end
+```
+
+```elixir
+# NextBigThing.next_item(Enum.to_list(1..100), ) # == 8
+NextBigThing.next_item(["Joe", "Bob", "Sally"], "Bob") == "Sally"
+```
+
+## Thinkful - Number Drills: Pixelart planning
+
+You're laying out a rad pixel art mural to paint on your living room wall in homage to Paul Robertson, your favorite pixel artist.
+
+You want your work to be perfect down to the millimeter. You haven't decided on the dimensions of your piece, how large you want your pixels to be, or which wall you want to use. You just know that you want to fit an exact number of pixels.
+
+To help decide those things you've decided to write a function, is_divisible() that will tell you whether a wall of a certain length can exactly fit an integer number of pixels of a certain length.
+
+Your function should take two arguments: the size of the wall in millimeters and the size of a pixel in millimeters. It should return True if you can fit an exact number of pixels on the wall, otherwise it should return False. For example is_divisible(4050, 27) should return True, but is_divisible(4066, 27) should return False.
+
+```elixir
+defmodule Wall do
+  def is_divisible(wall_length, pixel_size), do: rem(wall_length, pixel_size) == 0
+end
+```
+
+```elixir
+Wall.is_divisible(4066, 27) == false
+Wall.is_divisible(4050, 27) == true
+Wall.is_divisible(10000, 20) == true
+Wall.is_divisible(10005, 20) == false
+Wall.is_divisible(10005, 1) == true
+```
+
+## Sleigh Authentication
+
+Christmas is coming and many people dreamed of having a ride with Santa's sleigh. But, of course, only Santa himself is allowed to use this wonderful transportation. And in order to make sure, that only he can board the sleigh, there's an authentication mechanism.
+
+Your task is to implement the authenticate() method of the sleigh, which takes the name of the person, who wants to board the sleigh and a secret password. If, and only if, the name equals "Santa Claus" and the password is "Ho Ho Ho!" (yes, even Santa has a secret password with uppercase and lowercase letters and special characters :D), the return value must be true. Otherwise it should return false.
+
+```elixir
+defmodule SleighAuthentication do
+  def authenticate?("Santa Claus", "Ho Ho Ho!"), do: true
+  def authenticate?(_name, _password), do: false
+end
+```
+
+```elixir
+SleighAuthentication.authenticate?("Santa Claus", "Ho Ho Ho!")
+SleighAuthentication.authenticate?("Santa", "Ho Ho Ho!")
+```
+
+## String cleaning
+
+Your boss decided to save money by purchasing some cut-rate optical character recognition software for scanning in the text of old novels to your database. At first it seems to capture words okay, but you quickly notice that it throws in a lot of numbers at random places in the text. For example:
+
+```
+string_clean('! !') == '! !'
+string_clean('123456789') == ''
+string_clean('This looks5 grea8t!') == 'This looks great!'
+```
+
+Your harried co-workers are looking to you for a solution to take this garbled text and remove all of the numbers. Your program will take in a string and clean out all numeric characters, and return a string with spacing and special characters ~#$%^&!@*():;"'.,? all intact.
+
+```elixir
+defmodule Codewars do
+  def string_clean(s), do: Regex.replace(~r/[0-9]/, s, "")
+end
+```
+
+```elixir
+Codewars.string_clean("") == ""
+Codewars.string_clean("! !") == "! !"
+Codewars.string_clean("123456789") == ""
+Codewars.string_clean("(E3at m2e2!!)") == "(Eat me!!)"
+Codewars.string_clean("Dsa32 cdsc34232 csa!!! 1I 4Am cool!") == "Dsa cdsc csa!!! I Am cool!"
+Codewars.string_clean("A1 A1! AAA   3J4K5L@!!!") == "A A! AAA   JKL@!!!"
+Codewars.string_clean("Adgre2321 A1sad! A2A3A4 fv3fdv3J544K5L@") == "Adgre Asad! AAA fvfdvJKL@"
+
+Codewars.string_clean("Ad2dsad3ds21 A  1$$s122ad! A2A3Ae24 f44K5L@222222 ") ==
+  "Addsadds A  $$sad! AAAe fKL@ "
+
+Codewars.string_clean("33333Ad2dsad3ds21 A3333  1$$s122a!d! A2!A!3Ae$24 f2##222 ") ==
+  "Addsadds A  $$sa!d! A!A!Ae$ f## "
+
+Codewars.string_clean("My \"me3ssy\" d8ata issues2! Will1 th4ey ever, e3ver be3 so0lved?") ==
+  "My \"messy\" data issues! Will they ever, ever be solved?"
+
+Codewars.string_clean("Wh7y can't we3 bu1y the goo0d software3? #cheapskates3") ==
+  "Why can't we buy the good software? #cheapskates"
+```
+
+## Collatz Conjecture (3n+1)
+
+The Collatz conjecture (also known as 3n+1 conjecture) is a conjecture that applying the following algorithm to any number we will always eventually reach one:
+
+```elixir
+defmodule Collatz do
+  import Integer
+
+  def hotpo(n, count \\ 0) do
+    if n == 1 do
+      count
+    else
+      count = count + 1
+      if(Integer.is_even(n), do: hotpo(floor(n / 2), count), else: hotpo(3 * n + 1, count))
+    end
+  end
+end
+```
+
+```elixir
+defmodule Collatz do
+  import Integer
+
+  def hotpo(1), do: 0
+  def hotpo(n) when is_odd(n), do: 1 + hotpo(3 * n + 1)
+  def hotpo(n) when is_even(n), do: 1 + hotpo(div(n, 2))
+end
+```
+
+```elixir
+Collatz.hotpo(1)
+# Collatz.hotpo(6) 
+Collatz.hotpo(23) == 15
+## Collatz.hotpo(27) == 111
+```
+
+## Add Length
+
+What if we need the length of the words separated by a space to be added at the end of that same word and have it returned as an array?
+
+```
+add_length("apple ban") => ["apple 5", "ban 3"]
+add_length("you will win") => ["you 3", "will 4", "win 3"]
+```
+
+Your task is to write a function that takes a String and returns an Array/list with the length of each word added to each element .
+
+Note: String will have at least one element; words will always be separated by a space.
+
+```elixir
+defmodule Marker do
+  def add_length(str) do
+    str
+    |> String.split()
+    |> Enum.map(&"#{&1} #{String.length(&1)}")
+  end
+end
+```
+
+```elixir
+# == ["apple 5", "ban 3"]
+Marker.add_length("apple ban")
+```
+
+## Welcome to the City
+
+Create a method sayHello/say_hello/SayHello that takes as input a name, city, and state to welcome a person. Note that name will be an array consisting of one or more values that should be joined together with one space between each, and the length of the name array in test cases will vary.
+
+```elixir
+defmodule Hellouer do
+  def say_hello(name, city, state),
+    do: "Hello, #{Enum.join(name, " ")}! Welcome to #{city}, #{state}!"
+end
+```
+
+```elixir
+Hellouer.say_hello(["John", "Smith"], "Phoenix", "Arizona") ==
+  "Hello, John Smith! Welcome to Phoenix, Arizona!"
+```
+
+## repeatIt
+
+Create a function that takes a string and an integer (n).
+
+The function should return a string that repeats the input string n number of times.
+
+If anything other than a string is passed in you should return "Not a string"
+
+```elixir
+defmodule Repeater do
+  def repeat_it(str, n) when is_binary(str), do: String.duplicate(str, n)
+  def repeat_it(_, _n), do: "Not a string"
+end
+```
+
+```elixir
+Repeater.repeat_it("Hello", 11) == "HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello"
+```
+
+## Evil or Odious
+
+The number n is Evil if it has an even number of 1's in its binary representation.
+The first few Evil numbers: 3, 5, 6, 9, 10, 12, 15, 17, 18, 20
+
+The number n is Odious if it has an odd number of 1's in its binary representation.
+The first few Odious numbers: 1, 2, 4, 7, 8, 11, 13, 14, 16, 19
+
+You have to write a function that determine if a number is Evil of Odious, function should return "It's Evil!" in case of evil number and "It's Odious!" in case of odious number.
+
+```elixir
+defmodule Codewars.EvilOdious do
+  import Integer
+
+  def evil?(n) do
+    Integer.to_string(n, 2)
+    |> String.graphemes()
+    |> Enum.reject(&(&1 == "0"))
+    |> Enum.count()
+    |> Integer.is_even()
+    |> case do
+      false -> "It's Odious!"
+      true -> "It's Evil!"
+    end
+  end
+end
+```
+
+```elixir
+defmodule Codewars.EvilOdious do
+  def evil?(n) do
+    require Integer
+
+    n
+    |> Integer.digits(2)
+    |> Enum.sum()
+    |> Integer.is_even()
+    |> if(do: "It's Evil!", else: "It's Odious!")
+  end
+end
+```
+
+```elixir
+# Codewars.EvilOdious.evil?(1) == "It's Odious!"
+# Codewars.EvilOdious.evil?(2) == "It's Odious!"
+# == "It's Evil!"
+Codewars.EvilOdious.evil?(5_000_020)
+```
+
+## Plural
+
+We need a simple function that determines if a plural is needed or not. It should take a number, and return true if a plural should be used with that number or false if not. This would be useful when printing out a string such as 5 minutes, 14 apples, or 1 sun.
+
+You only need to worry about english grammar rules for this kata, where anything that isn't singular (one of something), it is plural (not one of something).
+
+All values will be positive integers or floats, or zero.
+
+```elixir
+defmodule Plural do
+  def plural?(n) when n == 1, do: false
+  def plural?(_n), do: true
+end
+```
+
+```elixir
+Plural.plural?(1.0)
+```
+
+## validate code with simple regex
+
+Basic regex tasks. Write a function that takes in a numeric code of any length. The function should check if the code begins with 1, 2, or 3 and return true if so. Return false otherwise.
+
+You can assume the input will always be a number.
+
+```elixir
+defmodule CodeValidator do
+  def valid?(code), do: String.match?(to_string(code), ~r/^1|^2|^3+/)
+end
+```
+
+```elixir
+defmodule CodeValidator do
+  def valid?(code) do
+    code
+    |> Integer.to_string()
+    |> String.starts_with?(["1", "2", "3"])
+  end
+end
+```
+
+```elixir
+CodeValidator.valid?(9453)
+```
+
+## String Templates - Bug Fixing #5
+
+```elixir
+defmodule Templates do
+  def build_string(args) do
+    "I like #{Enum.join(args, ", ")}!"
+  end
+end
+```
+
+## Formatting decimal places #0
+
+Each number should be formatted that it is rounded to two decimal places. You don't need to check whether the input is a valid number because only valid numbers are used in the tests.
+
+```elixir
+defmodule Decimator do
+  def two_decimal_places(n), do: Float.round(n, 2)
+end
+```
+
+```elixir
+Decimator.two_decimal_places(173_735_326.3783732637948948) == 173_735_326.38
+```
+
+## Days in the year
+
+A variation of determining leap years, assuming only integers are used and years can be negative and positive.
+
+Write a function which will return the days in the year and the year entered in a string. For example 2000, entered as an integer, will return as a string 2000 has 366 days
+
+There are a few assumptions we will accept the year 0, even though there is no year 0 in the Gregorian Calendar.
+
+Also the basic rule for validating a leap year are as follows
+
+Most years that can be divided evenly by 4 are leap years.
+
+Exception: Century years are NOT leap years UNLESS they can be evenly divided by 400.
+
+So the years 0, -64 and 2016 will return 366 days. Whilst 1974, -10 and 666 will return 365 days.
+
+```elixir
+defmodule DateUtils do
+  def year_days(year) when rem(abs(year), 100) == 0 and rem(abs(year), 400) != 0,
+    do: "#{year} has 365 days"
+
+  def year_days(year) when rem(abs(year), 4) == 0, do: "#{year} has 366 days"
+  def year_days(year) when rem(abs(year), 400) == 0, do: "#{year} has 366 days"
+  def year_days(year), do: "#{year} has 365 days"
+end
+```
+
+```elixir
+DateUtils.year_days(1857) == "1857 has 365 days"
+```
+
+## Leonardo Dicaprio and Oscars
+
+You have to write a function that describe Leo:
+
+```
+def leo(oscar) do
+  # ...
+end
+```
+
+if oscar was (integer) 88, you have to return "Leo finally won the oscar! Leo is happy".
+if oscar was 86, you have to return "Not even for Wolf of wallstreet?!"
+if it was not 88 or 86 (and below 88) you should return "When will you give Leo an Oscar?"
+if it was over 88 you should return "Leo got one already!"
+
+```elixir
+defmodule Oscar do
+  def leo(88), do: "Leo finally won the oscar! Leo is happy"
+  def leo(86), do: "Not even for Wolf of wallstreet?!"
+  def leo(oscar) when oscar < 88, do: "When will you give Leo an Oscar?"
+  def leo(oscar) when oscar > 88, do: "Leo got one already!"
+end
+```
+
+```elixir
+Oscar.leo(89) == "Leo got one already!"
+Oscar.leo(88) == "Leo finally won the oscar! Leo is happy"
+Oscar.leo(87) == "When will you give Leo an Oscar?"
+Oscar.leo(86) == "Not even for Wolf of wallstreet?!"
+```
+
+## Remove the time
+
+You're re-designing a blog and the blog's posts have the following format for showing the date and time a post was made:
+
+Weekday Month Day, time e.g., Friday May 2, 7pm
+
+You're running out of screen real estate, and on some pages you want to display a shorter format, Weekday Month Day that omits the time.
+
+Write a function, shortenToDate, that takes the Website date/time in its original string format, and returns the shortened format.
+
+Assume shortenToDate's input will always be a string, e.g. "Friday May 2, 7pm". Assume shortenToDate's output will be the shortened string, e.g., "Friday May 2".
+
+```elixir
+defmodule Datemizer do
+  def shorten_to_date(datetime), do: Regex.replace(~r/, \d{1,2}.m/, datetime, "")
+end
+```
+
+```elixir
+Datemizer.shorten_to_date("Friday May 2, 9am") == "Friday May 2"
+Datemizer.shorten_to_date("Tuesday January 29, 10pm") == "Tuesday January 29"
+Datemizer.shorten_to_date("Monday December 25, 10pm") == "Monday December 25"
+```
+
+## Find the Slope
+
+Given an array of 4 integers
+[a,b,c,d] representing two points (a, b) and (c, d), return a string representation of the slope of the line joining these two points.
+
+For an undefined slope (division by 0), return undefined . Note that the "undefined" is case-sensitive.
+
+```
+   a:x1
+   b:y1
+   c:x2
+   d:y2
+```
+
+Assume that [a,b,c,d] and the answer are all integers (no floating numbers!). Slope: https://en.wikipedia.org/wiki/Slope
+
+```elixir
+defmodule SloppyMath do
+  def slope([a, _b, c, _d]) when c - a == 0, do: "undefined"
+  def slope([a, b, c, d]), do: "#{trunc((d - b) / (c - a))}"
+end
+```
+
+```elixir
+SloppyMath.slope([19, 3, 20, 3]) == "0"
+SloppyMath.slope([2, 7, 4, -7]) == "-7"
+SloppyMath.slope([10, 50, 30, 150]) == "5"
+SloppyMath.slope([15, 45, 12, 60]) == "-5"
+SloppyMath.slope([12, 18, 20, 12])
+# SloppyMath.slope([-10,6,-10,3]) #== "undefined"   
+```
+
+## Localize The Barycenter of a Triangle
+
+The medians of a triangle are the segments that unit the vertices with the midpoint of their opposite sides. The three medians of a triangle intersect at the same point, called the barycenter or the centroid. Given a triangle, defined by the cartesian coordinates of its vertices we need to localize its barycenter or centroid.
+
+The function bar_triang() or barTriang or bar-triang, receives the coordinates of the three vertices A, B and C as three different arguments and outputs the coordinates of the barycenter O in an array [xO, yO]
+
+This is how our asked function should work: the result of the coordinates should be expressed up to four decimals, (rounded result).
+
+You know that the coordinates of the barycenter are given by the following formulas.
+
+```elixir
+defmodule Barycenter do
+  def bar_triang({x1, y1}, {x2, y2}, {x3, y3}),
+    do: {Float.round((x1 + x2 + x3) / 3, 4), Float.round((y1 + y2 + y3) / 3, 4)}
+end
+```
+
+```elixir
+Barycenter.bar_triang({4, 6}, {12, 4}, {10, 10}) == {8.6667, 6.6667}
+Barycenter.bar_triang({4, 2}, {12, 2}, {6, 10}) == {7.3333, 4.6667}
+Barycenter.bar_triang({4, 8}, {8, 2}, {16, 6}) == {9.3333, 5.3333}
+Barycenter.bar_triang({0, 0}, {1, 3}, {-1, 6}) == {0, 3}
+# == {3, 0}
+Barycenter.bar_triang({0, 0}, {1, 6}, {8, -6})
+```
+
+## Fix your code before the garden dies!
+
+You have an award-winning garden and every day the plants need exactly 40mm of water. You created a great piece of JavaScript to calculate the amount of water your plants will need when you have taken into consideration the amount of rain water that is forecast for the day. Your jealous neighbour hacked your computer and filled your code with bugs.
+
+Your task is to debug the code before your plants die!
+
+```elixir
+defmodule Garden do
+  def rain_amount(mm) do
+    case mm do
+      value when value >= 40 ->
+        "Your plant has had more than enough water for today!"
+
+      _ ->
+        "You need to give your plant #{40 - mm}mm of water"
+    end
+  end
+end
+```
+
+## Are there any arrows left?
+
+You have a quiver of arrows, but some have been damaged. The quiver contains arrows with an optional range information (different types of targets are positioned at different ranges), so each item is an arrow.
+You need to verify that you have some good ones left, in order to prepare for battle:
+
+```
+any_arrows?([%{"range" => 5}, %{"range" => 10, "damaged" => true}, %{"damaged" => true}])
+```
+
+If an arrow in the quiver does not have a damaged status, it means it's new.
+
+The expected result is a boolean, indicating whether you have any good arrows left.
+
+Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+```elixir
+defmodule Quiver do
+  def any_arrows?([]), do: false
+
+  def any_arrows?(arrows) do
+    false in Enum.map(arrows, &(&1["damaged"] == true))
+  end
+end
+```
+
+```elixir
+# == true
+Quiver.any_arrows?([%{"range" => 5}, %{"range" => 10, "damaged" => true}, %{"damaged" => true}])
+```
