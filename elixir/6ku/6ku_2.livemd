@@ -1,0 +1,51 @@
+# 6ku_2
+
+## PI approximation
+
+https://www.codewars.com/kata/550527b108b86f700000073f
+
+```elixir
+defmodule Piapprox do
+  def iter_pi(epsilon) do
+    Stream.iterate(1, fn x -> x + 1 end)
+    |> Enum.reduce_while(4, fn x, acc ->
+      if abs(:math.pi() - acc) > epsilon do
+        if rem(x, 2) == 0 do
+          {:cont, acc + 1 / (x * 2 + 1) * 4}
+        else
+          {:cont, acc - 1 / (x * 2 + 1) * 4}
+        end
+      else
+        {:halt, [x, trunc(acc * 1.0e10) / 1.0e10]}
+      end
+    end)
+  end
+end
+```
+
+```elixir
+Piapprox.iter_pi(0.01)
+# 1315929035
+# :math.pi()
+```
+
+## Calculate the area of a regular n sides polygon inside a circle of radius r
+
+https://www.codewars.com/kata/5a58ca28e626c55ae000018a
+
+```elixir
+defmodule Kata do
+  def area_of_polygon_inside_circle(circle_radius, number_of_sides) do
+    Float.round(
+      circle_radius * circle_radius * number_of_sides *
+        :math.sin(:math.pi() / number_of_sides * 2) /
+        2,
+      3
+    )
+  end
+end
+```
+
+```elixir
+Kata.area_of_polygon_inside_circle(3, 3)
+```
