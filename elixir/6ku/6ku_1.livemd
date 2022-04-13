@@ -1,0 +1,350 @@
+# 6ku_1
+
+## Which are in?
+
+https://www.codewars.com/kata/550554fd08b86f84fe000a58
+
+```elixir
+defmodule Whicharein do
+  def in_array(array1, array2) do
+    for x <- array1, y <- array2 do
+      if String.contains?(y, x), do: x
+    end
+    |> Enum.uniq()
+    |> Enum.reject(&is_nil/1)
+    |> Enum.sort()
+  end
+end
+```
+
+```elixir
+Whicharein.in_array(["by", "pini", "wh", "oes", "ou", "or", "omm", "ing"], [
+  "am",
+  "perfect",
+  "your",
+  "versioning;",
+  "you",
+  "I",
+  "pointed",
+  "for",
+  "have",
+  "have",
+  "does",
+  "questions",
+  "somewhere).",
+  "1.9?",
+  "input",
+  "out",
+  "neither",
+  "most",
+  "should",
+  "here",
+  "I",
+  "does",
+  "(since",
+  "your",
+  "have",
+  "comment)",
+  "the",
+  "would",
+  "I",
+  "Ruby",
+  "the",
+  "Ruby,",
+  "browse",
+  "a",
+  "(mladen's",
+  "me",
+  "am",
+  "glad",
+  "known",
+  "1.9.2.",
+  "ruby-doc.",
+  "sample;",
+  "have",
+  "opinion,",
+  "for",
+  "In",
+  "to",
+  "apidock",
+  "what",
+  "updated"
+])
+```
+
+## Counting Duplicates
+
+https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1
+
+```elixir
+defmodule DuplicateCount do
+  def count(str) do
+    str =
+      str
+      |> String.upcase()
+      |> String.graphemes()
+
+    str
+    |> Enum.reject(fn x -> if Enum.count(str, fn y -> y == x end) < 2, do: x end)
+    |> Enum.uniq()
+    |> Enum.count()
+  end
+end
+```
+
+```elixir
+defmodule DuplicateCount do
+  def count(str) do
+    str
+    |> String.downcase()
+    |> String.graphemes()
+    |> Enum.group_by(fn char -> char end)
+    |> Enum.count(fn {_, char_group} -> Enum.count(char_group) > 1 end)
+  end
+end
+```
+
+```elixir
+# == 2
+DuplicateCount.count("Indivisibilities")
+```
+
+## Two Sum
+
+https://www.codewars.com/kata/52c31f8e6605bcc646000082
+
+```elixir
+defmodule TwoSum do
+  @spec two_sum([integer()], integer()) :: {integer(), integer()}
+  def two_sum(numbers, target) do
+    for {x, y} <- Enum.with_index(numbers), {a, b} <- Enum.reverse(Enum.with_index(numbers)) do
+      if x + a == target and y != b, do: {y, b}
+    end
+    |> Enum.reject(&is_nil/1)
+    |> List.first()
+  end
+end
+```
+
+```elixir
+TwoSum.two_sum([1, 2, 3], 4)
+```
+
+## Reverse or rotate?
+
+https://www.codewars.com/kata/56b5afb4ed1f6d5fb0000991
+
+```elixir
+defmodule Revrot do
+  def revrot(str, sz) when sz <= 0 or sz > byte_size(str), do: ""
+
+  def revrot(str, sz) do
+    str
+    |> String.graphemes()
+    |> Enum.map(&String.to_integer/1)
+    |> Enum.chunk_every(sz, sz, :discard)
+    |> Enum.map(fn x ->
+      if rem(sum_cub(x), 2) == 0 do
+        Enum.reverse(x)
+      else
+        [hd | tl] = x
+        tl ++ [hd]
+      end
+    end)
+    |> List.flatten()
+    |> Enum.join()
+  end
+
+  def sum_cub(dig) do
+    dig
+    |> Enum.map(&Integer.pow(&1, 3))
+    |> Enum.sum()
+  end
+end
+```
+
+```elixir
+# --> "67834466"
+Revrot.revrot("733049910872815764", 5)
+```
+
+## Find The Parity Outlier
+
+https://www.codewars.com/kata/5526fc09a1bbd946250002dc
+
+```elixir
+defmodule Kata do
+  def find_outlier(integers) do
+    {x, y} =
+      integers
+      |> Enum.group_by(&(rem(&1, 2) == 0))
+      |> Enum.reject(fn {x, y} -> length(y) > 1 end)
+      |> Enum.unzip()
+
+    y |> List.flatten() |> Enum.at(0)
+  end
+end
+```
+
+```elixir
+defmodule Kata do
+  def find_outlier(integers) do
+    {e, o} = Enum.split_with(integers, &(rem(&1, 2) == 0))
+
+    if length(e) > length(o), do: hd(o), else: hd(e)
+  end
+end
+```
+
+```elixir
+# == 3
+Kata.find_outlier([2, 6, 8, 10, 3])
+```
+
+## Find the odd int
+
+https://www.codewars.com/kata/54da5a58ea159efa38000836
+
+```elixir
+defmodule FindOdd do
+  def find(list) do
+    {res, _} =
+      list
+      |> Enum.frequencies()
+      |> Enum.reject(fn {_x, y} -> rem(y, 2) == 0 end)
+      |> List.first()
+
+    res
+  end
+end
+```
+
+```elixir
+FindOdd.find([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5])
+```
+
+## Multiples of 3 or 5
+
+https://www.codewars.com/kata/514b92a657cdc65150000006
+
+```elixir
+defmodule Challenge do
+  def solution(number) when number < 0, do: 0
+
+  def solution(number) do
+    Enum.filter(1..(number - 1), fn x ->
+      rem(x, 3) == 0 or rem(x, 5) == 0
+    end)
+    |> Enum.sum()
+  end
+end
+```
+
+```elixir
+Challenge.solution(10)
+```
+
+## Highest Scoring Word
+
+https://www.codewars.com/kata/57eb8fcdf670e99d9b000272
+
+```elixir
+defmodule Kata do
+  def high(str) do
+    {_, word} =
+      str
+      |> String.split(" ")
+      |> Enum.group_by(fn x -> String.to_charlist(x) |> Enum.reduce(0, &(&1 + &2 - 96)) end)
+      |> Enum.max()
+
+    List.first(word)
+  end
+end
+```
+
+```elixir
+Kata.high("man i need a taxi up to ubud")
+```
+
+## Decode the Morse code
+
+https://www.codewars.com/kata/54b724efac3d5402db00065e
+
+```elixir
+defmodule MorseCode do
+  # use MorseCode.Constants # Defines @morse_codes
+  @morse_codes %{
+    "..--.-" => "_",
+    ".." => "I",
+    "-" => "T",
+    "--." => "G",
+    ".-." => "R",
+    "...." => "H",
+    "--..--" => ",",
+    "...-..-" => "$",
+    "-..-" => "X",
+    "-.--.-" => ")",
+    "-.-.-." => ";",
+    "--.." => "Z",
+    ".----" => "1",
+    "-..." => "B",
+    ".----." => "'",
+    "-." => "N",
+    "..--.." => "?",
+    ".-" => "A",
+    "--..." => "7",
+    "---.." => "8",
+    ".-.." => "L",
+    "--" => "M",
+    ".-..-." => "\"",
+    "-...-" => "=",
+    "..-." => "F",
+    "-.--" => "Y",
+    "-.--." => "(",
+    "-....-" => "-",
+    ".-..." => "&",
+    "....-" => "4",
+    ".--." => "P",
+    "." => "E",
+    "---" => "O",
+    ".---" => "J",
+    "-.-" => "K",
+    "-.." => "D",
+    "..---" => "2",
+    "---..." => ":",
+    "-.-.--" => "!",
+    "-..-." => "/",
+    ".-.-." => "+",
+    "--.-" => "Q",
+    ".--" => "W",
+    ".-.-.-" => ".",
+    "-.-." => "C",
+    "..-" => "U",
+    "...---..." => "SOS",
+    ".--.-." => "@",
+    "...-" => "V",
+    "..." => "S",
+    "-----" => "0",
+    "...--" => "3",
+    "....." => "5",
+    "----." => "9",
+    "-...." => "6"
+  }
+  def decode(code) do
+    code
+    |> String.split(" ")
+    |> Enum.map(fn x ->
+      if @morse_codes[x], do: @morse_codes[x], else: " "
+    end)
+    |> Enum.join("")
+    |> String.replace("  ", " ")
+    |> String.trim()
+  end
+end
+```
+
+```elixir
+# == "HEY JUDE"
+MorseCode.decode(".... . -.--   .--- ..- -.. .")
+# MorseCode.decode(" . ")
+```
