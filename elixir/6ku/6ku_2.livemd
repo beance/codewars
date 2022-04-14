@@ -179,3 +179,22 @@ end
 ```elixir
 AthleticAssociation.stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17")
 ```
+
+## Are they the "same"?
+
+https://www.codewars.com/kata/550498447451fbbd7600041c
+
+```elixir
+defmodule Aretheythesame do
+  @spec comp([number], [number]) :: boolean
+  def comp(a, b) do
+    a |> Enum.map(&(&1 * &1)) |> Enum.sort() == b |> Enum.sort()
+  end
+end
+```
+
+```elixir
+a = [121, 144, 19, 161, 19, 144, 19, 11]
+b = [11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19]
+Aretheythesame.comp(a, b)
+```
