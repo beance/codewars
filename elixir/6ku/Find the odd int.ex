@@ -4,7 +4,7 @@ defmodule FindOdd do
   def find(list) do
     {res, _} =
       list
-      |> Enum.frequencies()
+      
       |> Enum.reject(fn {_x, y} -> rem(y, 2) == 0 end)
       |> List.first()
 

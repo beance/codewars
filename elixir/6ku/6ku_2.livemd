@@ -49,3 +49,133 @@ end
 ```elixir
 Kata.area_of_polygon_inside_circle(3, 3)
 ```
+
+## Array.diff
+
+https://www.codewars.com/kata/523f5d21c841566fde000009
+
+```elixir
+defmodule ArrayDiff do
+  def array_diff(a, b), do: Enum.reject(a, &(&1 in b))
+end
+```
+
+```elixir
+# [2,2]
+ArrayDiff.array_diff([1, 2, 2], [1])
+```
+
+## Roman Numerals Decoder
+
+https://www.codewars.com/kata/51b6249c4612257ac0000005
+
+```elixir
+defmodule Solution do
+  @digit %{"I" => 1, "V" => 5, "X" => 10, "L" => 50, "C" => 100, "D" => 500, "M" => 1000}
+  def decode(roman) do
+    roman = roman |> String.graphemes()
+
+    roman
+    |> Enum.map(&@digit[&1])
+    |> Enum.with_index()
+    |> Enum.reduce(0, fn {x, y}, acc ->
+      if Enum.at(roman, y + 1) != nil and @digit[Enum.at(roman, y + 1)] > x,
+        do: acc - x,
+        else: acc + x
+    end)
+  end
+end
+```
+
+```elixir
+Solution.decode("XLVI")
+```
+
+## Esolang Interpreters #1 - Introduction to Esolangs and My First Interpreter (MiniStringFuck)
+
+https://www.codewars.com/kata/586dd26a69b6fd46dd0000c0
+
+```elixir
+defmodule MiniStringFuck do
+  @moduledoc false
+  def execute(command) do
+    command
+    |> String.codepoints()
+    |> Enum.reduce({0, []}, fn
+      "+", {255, out} -> {0, out}
+      "+", {x, out} -> {x + 1, out}
+      ".", {x, out} -> {x, [out | [x]]}
+      _cp, acc -> acc
+    end)
+    |> elem(1)
+    |> List.to_string()
+  end
+end
+```
+
+```elixir
+# function myFirstInterpreter(code) {
+#   let out = "",
+#     byte = 0;
+#   [...code].forEach(cmd => {
+#     switch (cmd) {
+#       case "+":
+#         byte = (byte + 1) % 256;
+#         break;
+#       case ".":
+#         out += String.fromCharCode(byte);
+#         break;
+#     }
+#   });
+#   return out;
+# }
+alphabet_program = String.duplicate("+", 65) <> String.duplicate(".+", 25) <> "."
+
+# == "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+MiniStringFuck.execute(alphabet_program)
+```
+
+## Statistics for an Athletic Association
+
+https://www.codewars.com/kata/55b3425df71c1201a800009c
+
+```elixir
+defmodule AthleticAssociation do
+  def stat(""), do: ""
+
+  def stat(string) do
+    ts =
+      string
+      |> String.split(", ")
+      |> Enum.map(&String.split(&1, "|"))
+      |> Enum.map(&Enum.map(&1, fn x -> String.to_integer(x) end))
+      |> Enum.map(fn [h, m, s] -> h * 60 * 60 + m * 60 + s end)
+      |> Enum.sort()
+
+    "Range: #{format(range(ts))} Average: #{format(avg(ts))} Median: #{format(median(ts))}"
+  end
+
+  defp range(ts), do: Enum.min_max(ts) |> (fn {min, max} -> max - min end).()
+
+  defp avg(ts), do: Enum.sum(ts) |> div(Enum.count(ts))
+
+  defp median(ts), do: ts |> length() |> div_rem(2) |> median(ts)
+  defp median({half, 0}, ts), do: avg(Enum.slice(ts, half - 1, 2))
+  defp median({half, 1}, ts), do: Enum.at(ts, half)
+
+  defp div_rem(dividend, divisor), do: {div(dividend, divisor), rem(dividend, divisor)}
+
+  defp format(t) do
+    {h, x} = div_rem(t, 60 * 60)
+    {m, s} = div_rem(x, 60)
+
+    [h, m, s]
+    |> Enum.map(&Integer.to_string/1)
+    |> Enum.map_join("|", &String.pad_leading(&1, 2, "0"))
+  end
+end
+```
+
+```elixir
+AthleticAssociation.stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17")
+```
