@@ -198,3 +198,63 @@ a = [121, 144, 19, 161, 19, 144, 19, 11]
 b = [11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19]
 Aretheythesame.comp(a, b)
 ```
+
+## Disguised sequences (II)
+
+https://www.codewars.com/kata/56fe17fcc25bf3e19a000292
+
+```elixir
+defmodule Disguised2 do
+  def v1(n, p) do
+    Stream.iterate(0, fn x -> x + 1 end)
+    |> Enum.reduce_while(0, fn x, result ->
+      if x <= n do
+        # IO.inspect(pow(-1, x))
+        # IO.inspect(:math.pow(-1, x))
+        # IO.inspect(pow(4, n - x))
+        # IO.inspect(n-x)
+        # IO.inspect(:math.pow(4, n - x))
+        part = :math.pow(-1, x) * p * :math.pow(4, n - x)
+
+        IO.inspect(part)
+        abc = n * 2 - x
+        {:cont, result + part * div(factorial(abc), factorial(abc - x) * factorial(x))}
+      else
+        {:halt, result}
+      end
+    end)
+  end
+
+  def u1(n, p) do
+    Stream.iterate(0, fn x -> x + 1 end)
+    |> Enum.reduce_while(0, fn x, result ->
+      if x <= n do
+        part = :math.pow(-1, x) * p * :math.pow(4, n - x)
+        abc = n * 2 - x + 1
+        {:cont, result + part * div(factorial(abc), factorial(abc - x) * factorial(x))}
+      else
+        {:halt, result}
+      end
+    end)
+  end
+
+  def v_eff(n, p) do
+    v1(n, p)
+  end
+
+  def u_eff(n, p) do
+    u1(n, p)
+  end
+
+  def pow(n, x) do
+    Enum.reduce(1..x, 1, fn _, acc -> n * acc end)
+  end
+
+  def factorial(n) when n <= 1, do: 1
+  def factorial(n) when n > 1, do: n * factorial(n - 1)
+end
+```
+
+```elixir
+Disguised2.v1(1, 14)
+```
