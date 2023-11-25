@@ -6,4 +6,4 @@ SELECT
         WHEN mpg * fuel_left >= distance_to_pump THEN True
         ELSE False
     END as res
-FROM zerofuel  
+FROM zerofuel;
