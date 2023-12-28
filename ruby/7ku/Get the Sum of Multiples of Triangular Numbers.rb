@@ -9,4 +9,6 @@ def sum_mult_triangnum(n, m)
   (m * (m + 1) * l) / 2
 end
 
+
+
 p sum_mult_triangnum(10, 15) # 1663200
