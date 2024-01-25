@@ -4,7 +4,7 @@
 # https://www.codewars.com/kata/54eea36b7f914221eb000e2f/train/ruby
 
 def sort_it(list, n)
-  list.split(', ').sort_by { |word|  word[n-1].downcase }.join(', ')
+  list.split(', ').sort_by { |word| word[n - 1].downcase }.join(', ')
 end
 
 # p sort_it('cat, dog, eel, bee', 3) #== 'bee, dog, eel, cat'

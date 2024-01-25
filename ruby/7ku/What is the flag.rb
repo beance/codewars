@@ -7,7 +7,5 @@ FLAG = 'dflaskjf; klcqwjer9qieiqucwepirom9028905839045809ds8gf[90g8sd[fh8f-[gh8-
 
 def flag
   FLAG.chars.each_slice(16).map(&:join).join("\n")
-  "FLAG{IS-IT-EASY-YET-FUN}"
+  'FLAG{IS-IT-EASY-YET-FUN}'
 end
-
-

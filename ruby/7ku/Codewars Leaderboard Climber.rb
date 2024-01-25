@@ -22,7 +22,5 @@ def leader_b(username, user_score, your_score)
   end
 end
 
-
-
 p leader_b('g964', 36_097, 20_000)
 p leader_b('webtechalex', 884, 900)

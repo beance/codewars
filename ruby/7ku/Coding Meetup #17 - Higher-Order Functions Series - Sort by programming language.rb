@@ -20,7 +20,6 @@ arr1 = [
 
 p sort_by_language(arr1)
 
-
 # or
 # def sort_by_language(arr)
 #   arr.sort_by {|d| d.values_at 'language', 'first_name'}

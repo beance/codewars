@@ -18,4 +18,4 @@ def abundant_number?(num)
   sum_of_divisors > num
 end
 
-p abundant_number?(11690)
+p abundant_number?(11_690)

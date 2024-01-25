@@ -9,13 +9,12 @@ def capitalize(s)
   [result.join, result.join.swapcase]
 end
 
-p capitalize('abcdef') == ['AbCdEf', 'aBcDeF']
-p capitalize("codewars") == ['CoDeWaRs', 'cOdEwArS']
-p capitalize("abracadabra") == ['AbRaCaDaBrA', 'aBrAcAdAbRa']
-p capitalize("codewarriors") == ['CoDeWaRrIoRs', 'cOdEwArRiOrS']
-p capitalize("indexinglessons") == ['InDeXiNgLeSsOnS', 'iNdExInGlEsSoNs']
-p capitalize("codingisafunactivity") == ['CoDiNgIsAfUnAcTiViTy', 'cOdInGiSaFuNaCtIvItY']
-
+p capitalize('abcdef') == %w[AbCdEf aBcDeF]
+p capitalize('codewars') == %w[CoDeWaRs cOdEwArS]
+p capitalize('abracadabra') == %w[AbRaCaDaBrA aBrAcAdAbRa]
+p capitalize('codewarriors') == %w[CoDeWaRrIoRs cOdEwArRiOrS]
+p capitalize('indexinglessons') == %w[InDeXiNgLeSsOnS iNdExInGlEsSoNs]
+p capitalize('codingisafunactivity') == %w[CoDiNgIsAfUnAcTiViTy cOdInGiSaFuNaCtIvItY]
 
 # def capitalize(s)
 #   result = s.gsub /.{1,2}/, &:capitalize

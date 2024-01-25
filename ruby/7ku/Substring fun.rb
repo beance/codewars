@@ -8,4 +8,4 @@ def nth_char(words)
   words.map.with_index { |w, i| w[i] }.join
 end
 
-p nth_char(["yoda", "best", "has"])
+p nth_char(%w[yoda best has])

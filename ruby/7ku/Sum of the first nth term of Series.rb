@@ -6,5 +6,3 @@
 def series_sum(n)
   format('%.2f', (0...n).sum { |i| 1.0 / (i * 3 + 1) })
 end
-
-

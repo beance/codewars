@@ -23,7 +23,6 @@ p count_salutes('>>>>>>>>>>>>>>>>>>>>>----<->')
 p count_salutes('<<----<>---<')
 p count_salutes('<---->---<---<-->')
 
-
 # def count_salutes(hallway)
 #   result = 0
 #   hallway.each_char.with_index{|c, i| result += hallway[i..-1].count('<')*2 if c == '>'}

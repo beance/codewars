@@ -13,4 +13,3 @@ def re_ordering(text)
 end
 
 p re_ordering('wario LoBan hello')
-

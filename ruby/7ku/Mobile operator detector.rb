@@ -29,7 +29,4 @@ p detect_operator('80671991111') == 'Kyivstar'
 p detect_operator('80631551111') == 'Life:)'
 p detect_operator('80111551111') == 'no info'
 
-
-
-
 p phone_words('80631551111')

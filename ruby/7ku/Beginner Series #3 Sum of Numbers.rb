@@ -7,4 +7,4 @@ def get_sum(a, b)
   a < b ? [*a..b].sum : [*b..a].sum
 end
 
-p get_sum(5,-1)
+p get_sum(5, -1)

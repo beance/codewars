@@ -4,8 +4,10 @@
 # https://www.codewars.com/kata/567501aec64b81e252000003/train/ruby
 
 def wallpaper(l, w, h)
-  return "zero" if l == 0 || w == 0 || h == 0
-  numbers = %w[zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty]
+  return 'zero' if l.zero? || w.zero? || h.zero?
+
+  numbers = %w[zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen
+               seventeen eighteen nineteen twenty]
   numbers[((l + w) * 2 / 0.52 / (10 / h) * 1.15).ceil]
 end
 

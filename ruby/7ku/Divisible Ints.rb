@@ -12,8 +12,9 @@ def get_count(n)
   (0...str.length).each do |i|
     (i...str.length).each do |j|
       sub = str[i..j]
-      next if sub.to_i == 0
-      count += 1 if n % sub.to_i == 0
+      next if sub.to_i.zero?
+
+      count += 1 if (n % sub.to_i).zero?
     end
   end
 

@@ -17,7 +17,6 @@ end
 
 p solve(%w[abode ABc xyzD])
 
-
 # def solve(strings)
 #   strings.map{ |s| s.downcase.each_char.zip('a'..'z').count{ |a, b| a == b } }
 # end

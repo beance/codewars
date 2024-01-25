@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # ASCII letters from Number
 # https://www.codewars.com/kata/589ebcb9926baae92e000001/train/ruby
 def convert(number)
@@ -7,8 +8,7 @@ def convert(number)
   result
 end
 
-p convert("676584") #"CAT"
-
+p convert('676584') # "CAT"
 
 # def convert(num)
 #   num.scan(/../).map {|n| n.to_i.chr}.join

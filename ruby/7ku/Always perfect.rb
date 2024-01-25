@@ -15,9 +15,7 @@ def check_root(string)
   "#{total_product_plus_one}, #{square_root.to_i}"
 end
 
-
-
 # p check_root('4,5,6,7')
 # p check_root('10,11,12,13,15')
 # p check_root('3,s,5,6')
-p check_root("25000,25001,25002,25003")
+p check_root('25000,25001,25002,25003')

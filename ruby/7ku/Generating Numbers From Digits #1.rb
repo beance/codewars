@@ -16,10 +16,10 @@ end
 
 def proc_arr(arr)
   combinations = multinomial_coefficient(arr.map(&:to_i))
-  sorted_numbers = arr.sort.join("").to_i
+  sorted_numbers = arr.sort.join('').to_i
   lowest = sorted_numbers
-  highest = arr.sort.reverse.join("").to_i
+  highest = arr.sort.reverse.join('').to_i
   [combinations, lowest, highest]
 end
 
-p proc_arr(["1", "2", "3", "0", "5", "1", "1", "3"])
+p proc_arr(%w[1 2 3 0 5 1 1 3])

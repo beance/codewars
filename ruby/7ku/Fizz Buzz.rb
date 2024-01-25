@@ -4,12 +4,11 @@
 
 def fizzbuzz(n)
   (1..n).map do |i|
-    case
-    when (i % 3).zero? && (i % 5).zero?
+    if (i % 3).zero? && (i % 5).zero?
       'FizzBuzz'
-    when (i % 5).zero?
+    elsif (i % 5).zero?
       'Buzz'
-    when (i % 3).zero?
+    elsif (i % 3).zero?
       'Fizz'
     else
       i

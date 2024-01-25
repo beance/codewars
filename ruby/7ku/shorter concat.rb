@@ -8,4 +8,4 @@ def shorter_reverse_longer(a, b)
   a.length < b.length ? a + b.reverse + a : b + a.reverse + b
 end
 
-p shorter_reverse_longer("first", "abcde")
+p shorter_reverse_longer('first', 'abcde')

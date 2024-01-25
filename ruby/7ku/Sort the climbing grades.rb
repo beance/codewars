@@ -11,5 +11,4 @@ def sort_grades(lst)
   lst
 end
 
-
 p sort_grades(['V0+', 'V0', 'V16', 'V2', 'VB', 'V6'])

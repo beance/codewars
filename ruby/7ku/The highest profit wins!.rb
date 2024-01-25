@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # The highest profit wins!
 # https://www.codewars.com/kata/559590633066759614000063/solutions/ruby
 

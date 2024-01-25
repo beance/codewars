@@ -8,4 +8,4 @@ def BinaryGCD(x, y)
 end
 
 p BinaryGCD(45, 300)
-p BinaryGCD(100000, 10000000)
+p BinaryGCD(100_000, 10_000_000)
