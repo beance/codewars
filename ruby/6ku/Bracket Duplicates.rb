@@ -23,4 +23,4 @@ def string_parse(string)
   output
 end
 
-p string_parse(5.3) #== "aa[aa]bbcdeff[fffff]g"
+p string_parse('aaaabbcdefffffffg') #== "aa[aa]bbcdeff[fffff]g"
