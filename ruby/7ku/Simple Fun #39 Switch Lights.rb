@@ -11,7 +11,7 @@ def switch_lights(a)
 end
 
 def switch_lights(a)
-  a.map.with_index{|s, idx| (a[idx..-1].count(1) + a[idx]) % 2}
+  a.map.with_index { |_s, idx| (a[idx..-1].count(1) + a[idx]) % 2 }
 end
 
 p switch_lights([1, 1, 1, 1, 1])

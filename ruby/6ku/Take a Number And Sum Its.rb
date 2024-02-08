@@ -9,4 +9,4 @@ def sum_dig_pow(a, b)
   end
 end
 
-p sum_dig_pow(1, 100)
+p sum_dig_pow(3, 200)
