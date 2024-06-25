@@ -6,12 +6,14 @@
 def company_bot_strategy(training_data)
   correct, _wrong = training_data.partition { |x| x[1] == 1 }
   return 0 if correct.empty?
+
   (correct.sum(&:first) / correct.size.to_f)
 end
 
 def company_bot_strategy(training_data)
   correct = training_data.select { |x| x[1] == 1 }
   return 0 if correct.empty?
+
   (correct.sum(&:first) / correct.size.to_f)
 end
 

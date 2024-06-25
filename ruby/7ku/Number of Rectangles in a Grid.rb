@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Number of Rectangles in a Grid
 # https://www.codewars.com/kata/556cebcf7c58da564a000045/train/ruby
 

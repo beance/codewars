@@ -14,8 +14,9 @@ class Array
 end
 
 arr = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]
-res1, res2 = [], []
+res1 = []
+res2 = []
 arr[0].each { |x| res1 << x * 2 }
-arr[1].each {|x| res2 << x**2}
+arr[1].each { |x| res2 << x**2 }
 p res1
 p res2

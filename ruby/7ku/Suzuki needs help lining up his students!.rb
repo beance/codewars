@@ -4,7 +4,7 @@
 # https://www.codewars.com/kata/5701800886306a876a001031/train/ruby
 #
 def lineup_students(students)
-  students.split(" ").sort { |x, y| (x.length <=> y.length) == 0 ? x <=> y : x.length <=> y.length }.reverse
+  students.split(' ').sort { |x, y| (x.length <=> y.length).zero? ? x <=> y : x.length <=> y.length }.reverse
 end
 
 def lineup_students(students)
@@ -12,9 +12,9 @@ def lineup_students(students)
 end
 
 def lineup_students(students)
-  students.split.sort { |a, b | [b.length, b] <=> [a.length, a] }
+  students.split.sort { |a, b| [b.length, b] <=> [a.length, a] }
 end
 
-s1 = "Shunichi  Shinichi  Norio  Yoshito  Nori  Satoru  Shiro  Shin"
-lst1 = ["Shunichi", "Shinichi", "Yoshito", "Satoru", "Shiro", "Norio", "Shin", "Nori"]
+s1 = 'Shunichi  Shinichi  Norio  Yoshito  Nori  Satoru  Shiro  Shin'
+lst1 = %w[Shunichi Shinichi Yoshito Satoru Shiro Norio Shin Nori]
 p lineup_students(s1) == lst1

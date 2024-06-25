@@ -5,6 +5,7 @@
 
 def head_smash(arr)
   return "This isn't the gym!!" if arr.is_a?(Numeric)
-  return "Gym is empty" if arr.empty?
-  arr.map { |v| v.tr("O", " ") } if arr.is_a?(Array)
+  return 'Gym is empty' if arr.empty?
+
+  arr.map { |v| v.tr('O', ' ') } if arr.is_a?(Array)
 end

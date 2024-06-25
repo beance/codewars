@@ -3,8 +3,8 @@
 # Chinese Zodiac
 # https://www.codewars.com/kata/57a73e697cb1f31dd70000d2
 
-$animals = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"]
-$elements = ["Wood", "Fire", "Earth", "Metal", "Water"]
+$animals = %w[Rat Ox Tiger Rabbit Dragon Snake Horse Goat Monkey Rooster Dog Pig]
+$elements = %w[Wood Fire Earth Metal Water]
 
 def chinese_zodiac(year)
   year -= 1924

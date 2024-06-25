@@ -7,11 +7,11 @@ def mean_vs_median(numbers)
   mean = numbers.sum / numbers.length
   median = numbers.sort[numbers.length / 2]
   if mean > median
-    "mean"
+    'mean'
   elsif mean < median
-    "median"
+    'median'
   else
-    "same"
+    'same'
   end
 end
 

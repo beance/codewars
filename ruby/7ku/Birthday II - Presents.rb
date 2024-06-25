@@ -20,7 +20,7 @@ def present(x, y)
   end
 end
 
-p present("badpresent", 3)
-p present("bang", 27)
-p present("crap", 27)
-p present("goodpresent", 9)
+p present('badpresent', 3)
+p present('bang', 27)
+p present('crap', 27)
+p present('goodpresent', 9)

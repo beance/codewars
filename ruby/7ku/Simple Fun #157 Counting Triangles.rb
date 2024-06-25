@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Simple Fun #157: Counting Triangles
 # https://www.codewars.com/kata/58ad29bc4b852b14a4000050/train/ruby
 

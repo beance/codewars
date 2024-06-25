@@ -5,7 +5,7 @@
 
 def outed(meet, boss)
   total_score = meet.values.sum + meet[boss.to_sym] * 2
-  total_score / meet.values.length > 5 ? "Nice Work Champ!" : "Get Out Now!"
+  total_score / meet.values.length > 5 ? 'Nice Work Champ!' : 'Get Out Now!'
 end
 
-p outed({tim: 2, jim: 4, randy: 0, sandy: 5, andy: 8, katie: 6, laura: 2, saajid: 2, alex: 3, john: 2, mr: 8}, "john")
+p outed({ tim: 2, jim: 4, randy: 0, sandy: 5, andy: 8, katie: 6, laura: 2, saajid: 2, alex: 3, john: 2, mr: 8 }, 'john')

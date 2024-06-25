@@ -5,7 +5,11 @@
 
 class Array
   def depth
-    empty? ? 1 : map { |e| e.is_a?(Array) ? e.depth + 1 : 1 }.max
+    if empty?
+      1
+    else
+      map { |e| e.is_a?(Array) ? e.depth + 1 : 1 }.max
+    end
   end
 end
 

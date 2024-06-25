@@ -6,12 +6,12 @@
 def trim(beard)
   beard.map.with_index do |row, index|
     if index == beard.length - 1
-      row.map { |char| char = "..." }
+      row.map { |_char| char = '...' }
     else
-      row.map { |char| char == "J" ? char = "|" : char }
+      row.map { |char| char == 'J' ? char = '|' : char }
     end
   end
 end
 
-p trim([["|", "...", "...", "..."], ["|", "...", "...", "|"], ["...", "|", "|", "..."]])
+p trim([['|', '...', '...', '...'], ['|', '...', '...', '|'], ['...', '|', '|', '...']])
 # [["|", '|'],["|", '|'],["...", '...']]

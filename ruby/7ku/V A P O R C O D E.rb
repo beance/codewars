@@ -4,6 +4,6 @@
 # https://www.codewars.com/kata/5966eeb31b229e44eb00007a/train/ruby
 
 def vaporcode(s)
-  s.tr(" ", "").chars.map(&:upcase).join("  ")
+  s.tr(' ', '').chars.map(&:upcase).join('  ')
 end
-p vaporcode("Lets go to the movies")
+p vaporcode('Lets go to the movies')

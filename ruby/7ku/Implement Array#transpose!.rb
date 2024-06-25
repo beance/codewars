@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Implement Array#transpose!
 # https://www.codewars.com/kata/580311daab6c20e1ba000a9d/train/ruby
 

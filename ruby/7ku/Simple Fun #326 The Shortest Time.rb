@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Simple Fun #326: The Shortest Time
 # https://www.codewars.com/kata/5950a4bfc6bf4f433f000031/train/ruby
 #
@@ -16,5 +17,4 @@ def shortest_time(n, m, speeds)
   elevator <= walk ? elevator : walk
 end
 
-
-p shortest_time(5,6,[1,2,3,10])
+p shortest_time(5, 6, [1, 2, 3, 10])

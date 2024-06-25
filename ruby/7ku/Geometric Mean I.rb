@@ -5,8 +5,9 @@
 
 def geometric_meanI(arr)
   gm = arr.select { |a| a.is_a?(Numeric) && a >= 0 }
-  return 0 if ((arr.length - gm.length) > 1) && (arr.length-1 < 11)
-  return 0 if ((arr.length - gm.length) >= (arr.length / 10)) && (arr.length-1 >= 12)
+  return 0 if ((arr.length - gm.length) > 1) && (arr.length - 1 < 11)
+  return 0 if ((arr.length - gm.length) >= (arr.length / 10)) && (arr.length - 1 >= 12)
+
   gm.reduce(1, :*)**(1.0 / gm.length)
 end
 

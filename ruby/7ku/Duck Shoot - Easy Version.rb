@@ -5,7 +5,14 @@
 
 def duck_shoot(ammo, aim, ducks)
   shot = (ammo * aim).floor
-  ducks.gsub(/2/) { |v| shot > 0 ? (shot -= 1; "X") : v }
+  ducks.gsub(/2/) do |v|
+    if shot.positive?
+      (shot -= 1
+       'X')
+    else
+      v
+    end
+  end
 end
 
-p duck_shoot(4, 0.64, "|~~2~~~22~2~~22~2~~~~2~~~|")
+p duck_shoot(4, 0.64, '|~~2~~~22~2~~22~2~~~~2~~~|')

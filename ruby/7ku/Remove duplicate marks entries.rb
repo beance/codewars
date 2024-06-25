@@ -5,8 +5,9 @@
 
 def dataclean(values)
   return nil if values.nil?
+
   values.uniq { |x| x[0] }.sort_by { |x| x[1] }
 end
 
-p dataclean([["d", 1], ["d", 2], ["d", 3], ["E", 1], ["C", 5]])
+p dataclean([['d', 1], ['d', 2], ['d', 3], ['E', 1], ['C', 5]])
 # [["d",1], ["E",1], ["C",5]]

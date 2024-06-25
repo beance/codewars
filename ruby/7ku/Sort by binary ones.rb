@@ -4,7 +4,7 @@
 # https://www.codewars.com/kata/59eb28fb0a2bffafbb0000d6/train/ruby
 
 def sort_by_binary_ones(arr)
-  arr.sort_by { |num| [-num.to_s(2).count("1"), num.to_s(2).length, num] }
+  arr.sort_by { |num| [-num.to_s(2).count('1'), num.to_s(2).length, num] }
 end
 
 p sort_by_binary_ones([1, 3])

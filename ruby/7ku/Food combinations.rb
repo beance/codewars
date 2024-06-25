@@ -11,10 +11,10 @@ def actually_really_good(foods)
   elsif foods.length == 1
     str + "#{foods[0].capitalize} and more #{foods[0].downcase}."
   else
-    str + "Nothing!"
+    "#{str}Nothing!"
   end
 end
 
-foods = ["spam", "spam", "sausage", "spam", "spam", "spam", "spam", "spam", "spam", "spam"]
+foods = %w[spam spam sausage spam spam spam spam spam spam spam]
 result = actually_really_good(foods)
 puts result

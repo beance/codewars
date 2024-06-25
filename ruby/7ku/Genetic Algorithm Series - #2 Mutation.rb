@@ -5,16 +5,17 @@
 
 def mutate(chromosome, p)
   chromosome.gsub(/[0-9]/) do |digit|
-    if digit == "0"
-      rand < p ? "1" : "0"
-    elsif digit == "1"
-      rand < p ? "0" : "1"
+    case digit
+    when '0'
+      rand < p ? '1' : '0'
+    when '1'
+      rand < p ? '0' : '1'
     end
   end
 end
 
-zero = "0000000000"
-one = "1111111111"
+zero = '0000000000'
+one = '1111111111'
 
 # p mutate(zero, 0.5)
 p mutate(zero, 1)

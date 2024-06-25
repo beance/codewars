@@ -4,5 +4,5 @@
 # https://www.codewars.com/kata/567b468357ed7411be00004a/train/ruby
 
 def map_population_fit(population, &fitness)
-  population.map { |v| {chromosome: v, fitness: fitness.call(v)} }
+  population.map { |v| { chromosome: v, fitness: fitness.call(v) } }
 end

@@ -7,11 +7,12 @@ def get_neighbourhood(n_type, arr, coordinates)
   y, x = coordinates
   return [] if arr[y].nil? || arr[y][x].nil?
 
-  neighbourhood = if n_type == "moore"
-    [[y - 1, x - 1], [y - 1, x], [y - 1, x + 1], [y, x - 1], [y, x + 1], [y + 1, x - 1], [y + 1, x], [y + 1, x + 1]]
-  else
-    [[y, x - 1], [y, x + 1], [y - 1, x], [y + 1, x]]
-  end
+  neighbourhood = if n_type == 'moore'
+                    [[y - 1, x - 1], [y - 1, x], [y - 1, x + 1], [y, x - 1], [y, x + 1], [y + 1, x - 1], [y + 1, x],
+                     [y + 1, x + 1]]
+                  else
+                    [[y, x - 1], [y, x + 1], [y - 1, x], [y + 1, x]]
+                  end
   valid_neighbours = neighbourhood.select do |coord|
     coord[0] >= 0 && coord[1] >= 0 && arr[coord[0]] && arr[coord[0]][coord[1]]
   end
@@ -30,7 +31,7 @@ def get_neighbourhood(n_type, arr, (y, x))
     result << arr[y - 1][x] unless y.zero?
     result << arr[y + 1][x] unless too_deep
 
-    if n_type == "moore"
+    if n_type == 'moore'
       result << arr[y - 1][x - 1] unless x.zero? || y.zero?
       result << arr[y - 1][x + 1] unless y.zero?
       result << arr[y + 1][x - 1] unless x.zero? || too_deep
@@ -40,11 +41,11 @@ def get_neighbourhood(n_type, arr, (y, x))
 end
 
 arr = [[0, 1, 2, 3, 4],
-  [5, 6, 7, 8, 9],
-  [10, 11, 12, 13, 14],
-  [15, 16, 17, 18, 19],
-  [20, 21, 22, 23, 24]]
+       [5, 6, 7, 8, 9],
+       [10, 11, 12, 13, 14],
+       [15, 16, 17, 18, 19],
+       [20, 21, 22, 23, 24]]
 
 # p get_neighbourhood('moore', arr, [1, 1])
-p get_neighbourhood("von_neumann", arr, [0, 0])
+p get_neighbourhood('von_neumann', arr, [0, 0])
 # [1, 5, 7, 11]

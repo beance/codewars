@@ -16,4 +16,4 @@ def vowel_2_index(string)
   string.gsub(/[aeiou]/i) { Regexp.last_match.begin(0) + 1 }
 end
 
-p vowel_2_index("this is my string")
+p vowel_2_index('this is my string')

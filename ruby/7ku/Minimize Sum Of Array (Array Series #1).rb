@@ -9,4 +9,4 @@ def min_sum(arr)
 end
 
 p min_sum([12, 6, 10, 26, 3, 24])
-p min_sum([9,2,8,7,5,4,0,6])
+p min_sum([9, 2, 8, 7, 5, 4, 0, 6])

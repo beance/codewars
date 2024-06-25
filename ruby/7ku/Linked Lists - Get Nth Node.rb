@@ -5,14 +5,15 @@
 
 class Node
   attr_accessor :data, :next
+
   def initialize(data)
     @data = data
     @next = nil
   end
 end
 
-def get_nth(node,index)
-  raise if node.nil? || index < 0
-  index == 0 ? node : get_nth(node.next, index - 1)
-end
+def get_nth(node, index)
+  raise if node.nil? || index.negative?
 
+  index.zero? ? node : get_nth(node.next, index - 1)
+end

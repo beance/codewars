@@ -5,12 +5,14 @@
 
 def chicken_options(n)
   return [0] unless n.is_a?(Numeric)
+
   (0..n).to_a.reject { |x| [1, 2, 4, 5, 7, 8, 11, 14, 17].include?(x) }
 end
 
-
 def chicken_options(n)
-  (0..n).to_a - [1, 2, 4, 5, 7, 8, 11, 14, 17] rescue [0]
+  (0..n).to_a - [1, 2, 4, 5, 7, 8, 11, 14, 17]
+rescue StandardError
+  [0]
 end
 
 p chicken_options(38)

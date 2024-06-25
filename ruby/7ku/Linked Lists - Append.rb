@@ -1,10 +1,12 @@
 # frozen_string_literal: true
+
 # Linked Lists - Append
 # https://www.codewars.com/kata/55d17ddd6d7868493e000074/train/ruby
 
 class Node
   attr_accessor :data, :next
-  def initialize (data)
+
+  def initialize(data)
     @data = data
     @next = nil
   end

@@ -5,6 +5,7 @@
 
 def michael_pays(costs)
   return costs.round(2) if costs < 5
+
   kate_pays = costs / 3.0
   kate_pays <= 10 ? (costs - kate_pays).round(2) : (costs - 10).round(2)
 end

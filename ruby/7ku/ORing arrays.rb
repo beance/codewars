@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # ORing arrays
 # https://www.codewars.com/kata/5ac5e9aa3853da25d9000102/train/ruby
 def or_arrays(arr1, arr2, or_value = 0)

@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 # Coding Meetup #3 - Higher-Order Functions Series - Is Ruby coming?
 # https://www.codewars.com/kata/5827acd5f524dd029d0005a4/train/ruby
 #
 def is_ruby_coming(list)
-  list.any? { |u| u[:language] == "Ruby" }
+  list.any? { |u| u[:language] == 'Ruby' }
 end
 
 list1 = [

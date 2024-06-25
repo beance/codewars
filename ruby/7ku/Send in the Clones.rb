@@ -9,7 +9,6 @@ end
 
 p clonewars(0) # [16, 57]
 
-
 # def clonewars(kata_per_day)
 #   [(2**(kata_per_day - 1)).ceil, (0...kata_per_day).map { |i| 2**i * (kata_per_day - i) }.sum]
 # end

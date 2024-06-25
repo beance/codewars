@@ -4,9 +4,9 @@
 #
 
 def equalize(arr)
-  arr.map.with_index do |k, i|
+  arr.map.with_index do |_k, i|
     res = arr[i] - arr[0]
-    res < 0 ? res.to_s : "+#{res}"
+    res.negative? ? res.to_s : "+#{res}"
   end
 end
 

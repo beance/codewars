@@ -5,7 +5,7 @@
 
 def dropzone(fire, dropzones)
   x0, y0 = fire
-  dropzones.min_by{ |x, y| Math.hypot(x - x0, y - y0) }
+  dropzones.min_by { |x, y| Math.hypot(x - x0, y - y0) }
 end
 
 p dropzone([6, 8], [[3, 2], [6, 1], [7, 9]])

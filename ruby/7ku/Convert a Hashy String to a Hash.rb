@@ -6,5 +6,5 @@ def hashy_string_to_hash(str)
   eval(str)
 end
 
-hsh = "{:a=>1, :b=>2, :c=>3}"
+hsh = '{:a=>1, :b=>2, :c=>3}'
 p hashy_string_to_hash(hsh)

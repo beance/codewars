@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Sort rectangles and circles by area II
 # https://www.codewars.com/kata/5a1ebc2480171f29cf0000e5/train/ruby
 

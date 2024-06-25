@@ -4,7 +4,7 @@
 # https://www.codewars.com/kata/5fc836f5a167260008dfad7f
 
 def check(n, m)
-  n * m >= 20 || [[n, m].min, [n, m].max].join == "34"
+  n * m >= 20 || [n, m].minmax.join == '34'
 end
 
 # Change this to the desired board size

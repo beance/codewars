@@ -17,7 +17,8 @@ def score_matrix(matrix)
 end
 
 def score_matrix(matrix)
-  m, n = matrix.size, matrix[0].size
+  m = matrix.size
+  n = matrix[0].size
   score = 0
   m.times do |i|
     n.times do |j|
@@ -28,6 +29,6 @@ def score_matrix(matrix)
 end
 
 matrix = [[1, 2, 3, 4], [-3, -2, 1, 1], [3, 8, -1, 2], [20, 5, 10, -4],
-  [10, -8, -8, 4]]
+          [10, -8, -8, 4]]
 
 p score_matrix(matrix)

@@ -7,4 +7,4 @@ def encode(message, key)
   message.chars.map.with_index { |c, i| (c.ord - 96) + key.to_s[i % key.digits.length].to_i }
 end
 
-p encode("scout", 1939) # [20, 12, 18, 30, 21]
+p encode('scout', 1939) # [20, 12, 18, 30, 21]

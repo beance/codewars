@@ -5,6 +5,7 @@
 
 def get_mean(arr, x, y)
   return -1 if arr.length < y || arr.length < x || x <= 1 || y <= 1
+
   first_mean = arr.first(x).sum / x.to_f
   second_mean = arr.last(y).sum / y.to_f
   (first_mean + second_mean) / 2

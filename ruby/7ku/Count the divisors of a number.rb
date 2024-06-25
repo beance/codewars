@@ -5,16 +5,15 @@
 
 def divisors(n)
   return 1 if n == 1
+
   count = 2
   i = 2
   while i**2 < n
-    count += 2 if n % i == 0
+    count += 2 if (n % i).zero?
     i += 1
   end
   count += 1 if i**2 == n
   count
 end
-
-
 
 p divisors(1)

@@ -6,6 +6,7 @@
 def make_sequences(n, memo = {})
   return 1 if n == 1
   return memo[n] if memo.key?(n)
+
   count = 1
   (1..n / 2).each do |i|
     count += make_sequences(i, memo)

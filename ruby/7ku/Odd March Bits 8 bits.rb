@@ -6,7 +6,7 @@
 def bit_march(n)
   res = []
   (9 - n).times do |i|
-    res << ("1" * n).rjust(8 - i, "0").ljust(8, "0").chars.map(&:to_i)
+    res << ('1' * n).rjust(8 - i, '0').ljust(8, '0').chars.map(&:to_i)
   end
   res
 end

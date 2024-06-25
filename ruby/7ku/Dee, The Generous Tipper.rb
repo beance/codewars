@@ -13,7 +13,7 @@ def calc_tip(p, r)
   when 1
     p + 1
   when 0
-    p == 0 ? 0 : p - 1
+    p.zero? ? 0 : p - 1
   when -1
     [0, (p / 2).floor - 1].max
   end
@@ -26,7 +26,7 @@ def calc_tip(price, rating)
         when 1 then base_tip + 1
         when 0 then base_tip - 1
         when -1 then base_tip / 2 - 1
-  end
+        end
 
   [0, tip].max
 end

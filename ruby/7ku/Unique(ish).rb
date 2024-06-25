@@ -3,8 +3,8 @@
 # Unique(ish)
 # https://www.codewars.com/kata/595afed8c52e25d92c000072/train/ruby
 
-def unique strings
-  strings.uniq { |s| s.downcase.gsub(/\W/, "") }
+def unique(strings)
+  strings.uniq { |s| s.downcase.gsub(/\W/, '') }
 end
 
 # def unique strings
@@ -21,4 +21,4 @@ end
 #   unique_keys
 # end
 
-p unique(["Hello", "hello", "HeLlo!", "world!", "world"])
+p unique(['Hello', 'hello', 'HeLlo!', 'world!', 'world'])

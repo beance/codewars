@@ -3,8 +3,9 @@
 # Bob's Treasure Map
 # https://www.codewars.com/kata/5c3d3b73c48b71654d5eb15c/train/ruby
 def treasure_finder(map)
-  return nil unless  map =~ /[NSEW]/
-  [map.count("E") - map.count("W"), map.count("N") - map.count("S")]
+  return nil unless map =~ /[NSEW]/
+
+  [map.count('E') - map.count('W'), map.count('N') - map.count('S')]
 end
 
 # def treasure_finder(map)
