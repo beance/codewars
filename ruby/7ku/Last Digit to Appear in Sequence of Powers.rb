@@ -16,14 +16,9 @@ def last_digit_to_appear(n)
   a.to_a.last
 end
 
-# Examples
-# puts last_digit_to_appear(2)    # Output: 7
-# puts last_digit_to_appear(8)    # Output: 7
-# puts last_digit_to_appear(10)   # Output: 9
-# puts last_digit_to_appear(12)   # Output: 7
-# puts last_digit_to_appear(9999) # Output: 5 (example, actual can vary)
 
-p last_digit_to_appear(1)
+
+p last_digit_to_appear(99)
 
 
 
